@@ -1,2 +1,4 @@
 fastapi==0.78.0
 uvicorn==0.17.6
+pandas==1.4.2
+openpyxl==3.0.10

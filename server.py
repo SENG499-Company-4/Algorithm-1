@@ -6,17 +6,17 @@ app = FastAPI()
 
 
 class Preference(BaseModel):
-    course_num: str
-    preference_num: int
-    term: str
+    course_num: str      # ex. CSC 226
+    preference_num: int  # ex. 6
+    term: str            # ex. fall
 
 
 class Professor(BaseModel):
     preference_list: list[Preference]
-    display_name: str
-    fall_term_courses: int
-    spring_term_courses: int
-    summer_term_courses: int
+    display_name: str          # ex. Michael Zastre
+    fall_term_courses: int     # ex. 2
+    spring_term_courses: int   # ex. 1
+    summer_term_courses: int   # ex. 0
 
 
 @app.get("/")
@@ -27,3 +27,5 @@ def read_root():
 async def root(data: Preference):
     print(data)
     return Professor(["10:30", "11:30"])
+
+
