@@ -2,10 +2,10 @@
 Processes preferences spreadsheet file
 """
 
-import pandas as pd
-from server import Preference, Professor
 import itertools
 import json
+import pandas as pd
+from models import Preference, Professor
 
 
 class Process:
@@ -46,6 +46,5 @@ class Process:
 
         li = repr(prof_list)
         json_str = json.dumps(li)
-        # with open("output.json", "w") as f:
-        #    f.write(json_str)
-        return prof_list
+
+        return json_str
