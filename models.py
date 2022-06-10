@@ -1,8 +1,4 @@
-from fastapi import FastAPI
 from pydantic import BaseModel
-
-
-app = FastAPI()
 
 
 class Preference(BaseModel):
@@ -37,14 +33,3 @@ class Professor(BaseModel):
                 "summer_term_courses": self.summer_term_courses,
             }
         )
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.post("/", response_model=Professor)
-async def root(data: Preference):
-    print(data)
-    return Professor(["10:30", "11:30"])
