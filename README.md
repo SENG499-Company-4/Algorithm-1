@@ -7,6 +7,7 @@ Algorithm 1 code repository for SENG499 Summer 2022 project.
 - Tristan Slater (@trslater)
 - Graham Stewart (@solidsnackdrive)
 - Ty Ricard (@tyricard)
+- Dana Bell (@harkken)
 
 ## Server Usage
 
