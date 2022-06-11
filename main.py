@@ -1,21 +1,22 @@
 from fastapi import FastAPI
+
 from process import Process
+from models import Schedule
 
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    """
-    Testing a get request
-    """
-    return {"Hello": "World"}
+@app.post("/generate_schedule", response_model=Schedule)
+async def generate_schedule(schedule: Schedule):
+    """Generates a schedule"""
+
+    # data = Process.process_spreadsheet()
+
+    return Schedule(fallTermCourses=[],
+                    springTermCourses=[],
+                    summerTermCourses=[])
 
 
-@app.post("/generate/")
-async def generate():
-    """
-    Testing a post request
-    """
-    data = Process.process_spreadsheet()
-    return data
+@app.post("/check_schedule")
+async def check_schedule():
+    raise NotImplementedError()
