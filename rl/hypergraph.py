@@ -1,6 +1,8 @@
 from gym.spaces import MultiDiscrete
 from gym import Env
 import json
+from datetime import date
+import sys
 
 
 class HyperGraphEnv(Env):
@@ -16,6 +18,8 @@ class HyperGraphEnv(Env):
         self.episode_length = ep_len
         self.hyperedges = {}
         self.reward = 0
+        self.output_file_name = "logs/{}-render-output.txt".format(date.today().strftime("%d_%m_%Y"))
+        self.output_to_file = True
 
     def step(self):
         
@@ -30,10 +34,15 @@ class HyperGraphEnv(Env):
         return self.hyperedges, self.calcReward(), done, info
 
     def render(self):
-        print("Taken {} actions out of {} allowed for an episode.".format(self.num_actions, self.episode_length))
-        print("Agent is visting location: {}".format(self._agent_location))
-        print("Current state of hypergraph:")
-        print(json.dumps(self.hyperedges, indent=4, sort_keys=False))
+        with open(self.output_file_name, 'w') as f:
+            file = sys.stdout
+            if self.output_to_file:
+                file=f
+            print("Taken {} actions out of {} allowed for an episode.".format(self.num_actions, self.episode_length), file=file)
+            print("Agent is visting location: {}".format(self._agent_location), file=file)
+            print("Current state of hypergraph:", file=file)
+            print(json.dumps(self.hyperedges, indent=4, sort_keys=False), file=file)
+            print("**************************************************", file=file)
 
     def reset(self, seed=None):
         super().reset(seed=seed)
