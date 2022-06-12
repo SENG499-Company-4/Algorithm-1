@@ -6,15 +6,6 @@ class Preference(BaseModel):
     preferenceNum: int  # ex. 6
     term: str  # ex. fall
 
-    def __repr__(self):
-        return repr(
-            {
-                "courseNum": self.courseNum,
-                "preferenceNum": self.preferenceNum,
-                "term": self.term,
-            }
-        )
-
 
 class Professor(BaseModel):
     prefs: list[Preference]
@@ -23,17 +14,6 @@ class Professor(BaseModel):
     fallTermCourses: int
     springTermCourses: int
     summerTermCourses: int
-
-    def __repr__(self):
-        return repr(
-            {
-                "prefs": self.prefs,
-                "displayName": self.displayName,
-                "fallTermCourses": self.fallTermCourses,
-                "springTermCourses": self.springTermCourses,
-                "summerTermCourses": self.summerTermCourses,
-            }
-        )
 
 
 class Assignment(BaseModel):

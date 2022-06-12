@@ -44,7 +44,8 @@ class Process:
                 "summerTermCourses": 0,
             }
             prof_list.append(Professor(**prof_data))
-        li = repr(prof_list)
-        json_str = json.dumps(li)
+        
+        # Serialize Pydantic models using built-in json method
+        json_str = json.dumps(prof_list, default=lambda o: o.json())
 
         return json_str
