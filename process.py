@@ -55,7 +55,10 @@ class Process:
         return json_str
 
 
-    def preference_list:
+    def preference_list():
+        '''
+        Gets preference list from spreadsheet data
+        '''
         p_list = {}
         df = pd.read_excel("tp.xlsx")
         df = df.iloc[0:33, :25]  # filter out the excess data
@@ -66,42 +69,32 @@ class Process:
             prof = row.Instructor
             prefs[prof] = {}
             # create preference list
-            pref_list = []
-            # misc data shaping
             d = row._asdict()
             d = dict(itertools.islice(d.items(), 2, len(d.items())))
             # iterate through rows in spreadsheet
             for course in d:
-                pref_data = {
-                     course : pref_conversion[int(d[course])]
-                }
-                pref_list.append(Preference(**pref_data))  # create a new preference
-           
-            prof_data = {
-                "preference_list": pref_list,
-                "display_name": prof,
-                "fall_term_courses": 0,
-                "spring_term_courses": 0,
-                "summer_term_courses": 0,
-            }
-            prof_list.append(Professor(**prof_data))
+                preference = pref_conversion[int(d[course])] # Converts preferences to range [0,6]
+                prefs[prof][course] = preference
+        return prefs
 
-            p_list.append(prof)
-
-
-    def teacher_list():
-        t_list = []
+    def professor_list():
+        """
+        Returns list of professors from excel spreadsheet
+        """
+        p_list = []
         df = pd.read_excel("tp.xlsx")
         df = df.iloc[0:33, :25]  # filter out the excess data
 
         for row in df.itertuples():
             prof = row.Instructor
-            t_list.append(prof)
+            p_list.append(prof)
 
-
-        return t_list
+        return p_list
     
     def course_list(): 
+        """
+        Returns list of courses from spreadsheet
+        """
         c_list = []
         df = pd.read_excel("tp.xlsx")
         df = df.iloc[0:33, :25]  # filter out the excess data
@@ -117,20 +110,33 @@ class Process:
         return c_list
 
     
-    def course_prof_matrix(courses = course_list(), profs = teacher_list()):
-        n_courses = len(courses)
-        n_profs = len(profs)
-        pref_matrix = np.array(shape=(n_courses, n_profs))
-        for course in range(n_courses): 
-            for prof in range(n_profs): 
+    def course_prof_matrix(course_list, prof_list, pref_list):
+        """Creates a Professor Preference Matrix 
+
+        Arguments:
+            course_list - List of C courses to schedule 
+            prof_list - List of P professors to schedule
+            pref_list - Preferences of profs for courses
+                dictionary format prefs[prof_display_name][course_num]
+
+        return: P x C matrix with professor preferences ranging from [0,6]
+        """
+        n_courses = len(course_list)
+        n_profs = len(prof_list)
+        pref_matrix = np.zeros((n_profs, n_courses))
+        for prof_index in range(n_profs): 
+            for course_index in range(n_courses):
                 #Preference for match 
-                preference = profs
-                pref_matrix[course][prof] = 
+                preference = pref_list[prof_list[prof_index]][course_list[course_index]]
+                pref_matrix[prof_index][course_index] = preference
+
+        return pref_matrix
 
 
 if __name__ == "__main__":
+    #Testing Output...
     print("TEACHERS")
-    t_list = Process.teacher_list()
+    t_list = Process.professor_list()
     print(t_list)
     print(len(t_list))
 
@@ -138,5 +144,10 @@ if __name__ == "__main__":
     c_list = Process.course_list()
     print(c_list)
     print(len(c_list))
+
+    p_list = Process.preference_list()
+    matrix = Process.course_prof_matrix(c_list, t_list, p_list)
+    for i in range(matrix.shape[0]):
+        print(matrix[i])
 
 
