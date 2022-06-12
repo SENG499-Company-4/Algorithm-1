@@ -1,4 +1,4 @@
-from gym.spaces import Dict, MultiDiscrete
+from gym.spaces import MultiDiscrete
 from gym import Env
 
 
@@ -10,20 +10,31 @@ class HyperGraphEnv(Env):
         self.observation_space = MultiDiscrete(obs_shape)
         self.action_space = MultiDiscrete(act_shape)
         self.preferences = preferences
+        self.num_actions = 0
         self.episode_length = ep_len
         self.hyperedges = {}
         self.reward = 0
 
     def step(self):
-        pass
+        
+        if self.num_actions >= self.episode_length \
+                or self.isValidSchedule():
+            done = True
+        else: 
+            done = False
+
+        info = {}
+
+        return self.hyperedges, self.calcReward(), done, info
 
     def render(self):
-        pass
+        print(self.hyperedges)
 
     def reset(self, seed=None):
         super().reset(seed=seed)
-
-        self._agent_location = self.observation_space.sample() #outputs array not tuple
+        self._agent_location = tuple(self.observation_space.sample())
+        self.reward = 0
+        self.hyperedges.clear()
 
     def isValidSchedule(self):
         pass
