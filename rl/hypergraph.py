@@ -1,5 +1,6 @@
 from gym.spaces import MultiDiscrete
 from gym import Env
+import json
 
 
 class HyperGraphEnv(Env):
@@ -9,6 +10,7 @@ class HyperGraphEnv(Env):
         self.act_shape = act_shape
         self.observation_space = MultiDiscrete(obs_shape)
         self.action_space = MultiDiscrete(act_shape)
+        self._agent_location = tuple(self.observation_space.sample())
         self.preferences = preferences
         self.num_actions = 0
         self.episode_length = ep_len
@@ -28,7 +30,10 @@ class HyperGraphEnv(Env):
         return self.hyperedges, self.calcReward(), done, info
 
     def render(self):
-        print(self.hyperedges)
+        print("Taken {} actions out of {} allowed for an episode.".format(self.num_actions, self.episode_length))
+        print("Agent is visting location: {}".format(self._agent_location))
+        print("Current state of hypergraph:")
+        print(json.dumps(self.hyperedges, indent=4, sort_keys=False))
 
     def reset(self, seed=None):
         super().reset(seed=seed)
