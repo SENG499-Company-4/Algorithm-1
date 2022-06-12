@@ -111,7 +111,7 @@ class Process:
         return c_list
 
     
-    def course_prof_matrix(course_list, prof_list, pref_list):
+    def course_prof_matrix(course_list = course_list(), prof_list= professor_list(), pref_list= preference_list()):
         """Creates a Professor Preference Matrix 
 
         Arguments:
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     print(len(c_list))
 
     p_list = Process.preference_list()
-    matrix = Process.course_prof_matrix(c_list, t_list, p_list)
+    matrix = Process.course_prof_matrix()
     for i in range(matrix.shape[0]):
         print(matrix[i])
 
