@@ -29,22 +29,23 @@ class Process:
             # iterate through rows in spreadsheet
             for course in d:
                 pref_data = {
-                    "course_num": course,
-                    "preference_num": d[course],
+                    "courseNum": course,
+                    "preferenceNum": d[course],
                     "term": "",
                 }
                 pref_list.append(Preference(**pref_data))  # create a new preference
             prof = row.Instructor
             prof_data = {
-                "preference_list": pref_list,
-                "display_name": prof,
-                "fall_term_courses": 0,
-                "spring_term_courses": 0,
-                "summer_term_courses": 0,
+                "prefs": pref_list,
+                "displayName": prof,
+                "requiredEquipment": [],
+                "fallTermCourses": 0,
+                "springTermCourses": 0,
+                "summerTermCourses": 0,
             }
             prof_list.append(Professor(**prof_data))
-
-        li = repr(prof_list)
-        json_str = json.dumps(li)
+        
+        # Serialize Pydantic models using built-in json method
+        json_str = json.dumps(prof_list, default=lambda o: o.json())
 
         return json_str
