@@ -3,7 +3,7 @@ from gym import Env
 import json
 from datetime import date
 import sys
-
+from action import Action
 
 class HyperGraphEnv(Env):
     def __init__(self, obs_shape, act_shape, preferences, ep_len):
@@ -21,17 +21,14 @@ class HyperGraphEnv(Env):
         self.output_file_name = "logs/{}-render-output.txt".format(date.today().strftime("%d_%m_%Y"))
         self.output_to_file = True
 
-    def step(self):
-        
-        if self.num_actions >= self.episode_length \
-                or self.isValidSchedule():
-            done = True
-        else: 
-            done = False
-
+    def step(self, action):
+        self.updateState(action)
+        valid_sched = self.isValidSchedule()
+        self.calcReward(valid_sched)
+        done = self.isEndState(valid_sched)
         info = {}
 
-        return self.hyperedges, self.calcReward(), done, info
+        return self.hyperedges, self.reward, done, info
 
     def render(self):
         with open(self.output_file_name, 'w') as f:
@@ -50,10 +47,28 @@ class HyperGraphEnv(Env):
         self.reward = 0
         self.hyperedges.clear()
 
+    def updateState(self, action):
+        location = action.location
+        connection = action.connection
+
+        if connection == 1:
+            self.hyperedges[location] = 1
+
+        elif location in self.hyperedges \
+                and connection == 0:
+            del self.hyperedges[location]
+
+    def isEndState(self, valid_sched):
+        if self.num_actions >= self.episode_length \
+                or valid_sched:
+            return True
+        return False
+
     def isValidSchedule(self):
         pass
 
-    def getReward(self):
+    def calcReward(self, valid=False):
+        #self.reward = 
         pass
 
     def _get_obs(self):
