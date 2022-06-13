@@ -4,15 +4,18 @@ import json
 from datetime import date
 import sys
 from action import Action
+from numpy import int64, array, tanh, median, sum
+
+
 
 class HyperGraphEnv(Env):
-    def __init__(self, obs_shape, act_shape, preferences, ep_len):
+    def __init__(self, obs_dict, act_dict, preferences, P, ep_len):
         super(HyperGraphEnv).__init__()
-        self.obs_shape = obs_shape
-        self.act_shape = act_shape
-        self.observation_space = MultiDiscrete(obs_shape)
-        self.action_space = MultiDiscrete(act_shape)
-        self._agent_location = tuple(self.observation_space.sample())
+        self.obs_dict = obs_dict
+        self.act_dict = act_dict
+        self.observation_space = MultiDiscrete(obs_dict.values())
+        self.action_space = MultiDiscrete(act_dict.values())
+        self.P = P
         self.preferences = preferences
         self.num_actions = 0
         self.episode_length = ep_len
@@ -24,8 +27,8 @@ class HyperGraphEnv(Env):
     def step(self, action):
         self.updateState(action)
         valid_sched = self.isValidSchedule()
-        self.calcReward(valid_sched)
         done = self.isEndState(valid_sched)
+        self.calcReward(valid_sched)
         info = {}
 
         return self.hyperedges, self.reward, done, info
@@ -43,6 +46,7 @@ class HyperGraphEnv(Env):
 
     def reset(self, seed=None):
         super().reset(seed=seed)
+        self.num_actions = 0
         self._agent_location = tuple(self.observation_space.sample())
         self.reward = 0
         self.hyperedges.clear()
@@ -50,6 +54,7 @@ class HyperGraphEnv(Env):
     def updateState(self, action):
         location = action.location
         connection = action.connection
+        self._agent_location = location
 
         if connection == 1:
             self.hyperedges[location] = 1
@@ -57,6 +62,8 @@ class HyperGraphEnv(Env):
         elif location in self.hyperedges \
                 and connection == 0:
             del self.hyperedges[location]
+
+        self.num_actions += 1
 
     def isEndState(self, valid_sched):
         if self.num_actions >= self.episode_length \
@@ -67,9 +74,20 @@ class HyperGraphEnv(Env):
     def isValidSchedule(self):
         pass
 
-    def calcReward(self, valid=False):
-        #self.reward = 
-        pass
+    def calcReward(self, valid_sched):
+        r0 = 1
+        ri = 1 
+        card_c = self.obs_dict["courses"]
+
+        ct_pairs = [(loc[0], loc[1]) for loc in self.hyperedges.keys()]
+        p_hat = array([self.preferences[i, j] for i, j in ct_pairs])
+
+        R = sum(tanh(p_hat - median(self.P)))
+
+        if valid_sched:
+            R += r0 * card_c
+
+        self.reward = R
 
     def _get_obs(self):
         pass
