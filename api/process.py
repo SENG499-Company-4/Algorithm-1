@@ -11,7 +11,7 @@ import numpy as np
 pref_conversion = {0:0, 20:1, 39:2, 40:3, 78:4, 100:5, 195:6}
 
 class Process:   
-
+    @staticmethod
     def process_spreadsheet():
         """
         Turns spreadsheets into dataframes
@@ -53,7 +53,7 @@ class Process:
 
         return json_str
 
-
+    @staticmethod
     def preference_list():
         '''
         Gets preference list from spreadsheet data
@@ -78,6 +78,7 @@ class Process:
                 prefs[prof][course] = preference
         return prefs
 
+    @staticmethod
     def professor_list():
         """
         Returns list of professors from excel spreadsheet
@@ -92,6 +93,7 @@ class Process:
 
         return p_list
     
+    @staticmethod
     def course_list(): 
         """
         Returns list of courses from spreadsheet
@@ -110,8 +112,8 @@ class Process:
 
         return c_list
 
-    
-    def course_prof_matrix(course_list = course_list(), prof_list= professor_list(), pref_list= preference_list()):
+    @classmethod
+    def course_prof_matrix(cls, course_list=None, prof_list=None, pref_list=None):
         """Creates a Professor Preference Matrix 
 
         Arguments:
@@ -122,6 +124,16 @@ class Process:
 
         return: P x C matrix with professor preferences ranging from [0,6]
         """
+
+        if course_list is None:
+            course_list = cls.course_list()
+
+        if prof_list is None:
+            prof_list = cls.professor_list()
+
+        if pref_list is None:
+            pref_list = cls.preference_list()
+
         n_courses = len(course_list)
         n_profs = len(prof_list)
         pref_matrix = np.zeros((n_profs, n_courses))
@@ -150,5 +162,3 @@ if __name__ == "__main__":
     matrix = Process.course_prof_matrix()
     for i in range(matrix.shape[0]):
         print(matrix[i])
-
-
