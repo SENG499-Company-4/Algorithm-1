@@ -5,7 +5,7 @@ Processes preferences spreadsheet file
 import itertools
 import json
 import pandas as pd
-from models import Preference, Professor
+from .models import Preference, Professor
 import numpy as np
 
 pref_conversion = {0:0, 20:1, 39:2, 40:3, 78:4, 100:5, 195:6}

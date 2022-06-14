@@ -12,7 +12,7 @@ Algorithm 1 code repository for SENG499 Summer 2022 project.
 ## Server Usage
 
 ```
-uvicorn main:app --reload
+uvicorn api.main:app --reload
 ```
 
 To make requests to the API, you can use a 3rd-party tool (e.g., curl, Postman), or you can use the build-in API docs.
