@@ -3,3 +3,4 @@ openpyxl==3.0.10
 pandas==1.4.2
 python-dotenv==0.20.0
 uvicorn==0.17.6
+gym=0.24.1
