@@ -6,7 +6,7 @@ import sys
 from action import Action
 from numpy import int64, array, zeros, tanh, median, sum, count_nonzero
 
-MAX_COURSES_PER_TEACHER = 6
+MAX_COURSES_PER_TEACHER = 3
 MAX_TEACHERS_PER_COURSE = 1
 MIN_TEACHERS_PER_COURSE = 1
 
