@@ -110,6 +110,3 @@ class HyperGraphEnv(Env):
             R += r0 * card_c
 
         self.reward = R
-        
-
-    
