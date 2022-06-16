@@ -6,4 +6,4 @@ services:
       context: .
     image: algo1-api
     ports:
-      - 8000:8000
+      - ${PORT}:${PORT}
