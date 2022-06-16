@@ -10,4 +10,4 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY ./api /code/api
 COPY ./tp.xlsx /code
 
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0"]
+CMD ["python", "-m", "api.run"]
