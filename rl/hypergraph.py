@@ -4,17 +4,21 @@ import json
 from datetime import date
 import sys
 from action import Action
-from numpy import int64, array, tanh, median, sum
+from numpy import int64, array, zeros, tanh, median, sum, count_nonzero
 
+MAX_COURSES_PER_TEACHER = 6
+MAX_TEACHERS_PER_COURSE = 1
+MIN_TEACHERS_PER_COURSE = 1
 
 
 class HyperGraphEnv(Env):
     def __init__(self, obs_dict, act_dict, preferences, P, ep_len):
         super(HyperGraphEnv).__init__()
+        self.dtype = int64
         self.obs_dict = obs_dict
         self.act_dict = act_dict
-        self.observation_space = MultiDiscrete(obs_dict.values())
-        self.action_space = MultiDiscrete(act_dict.values())
+        self.observation_space = MultiDiscrete(tuple(obs_dict.values()))
+        self.action_space = MultiDiscrete(tuple(act_dict.values()))
         self.P = P
         self.preferences = preferences
         self.num_actions = 0
@@ -72,15 +76,33 @@ class HyperGraphEnv(Env):
         return False
 
     def isValidSchedule(self):
-        pass
+        teachers, courses = self.obs_dict["teachers"], self.obs_dict["courses"]
+        state = zeros((teachers, courses), dtype=self.dtype)
+
+        for loc, conn in self.hyperedges.items():
+            state[loc[0], loc[1]] = conn
+
+        num_courses_per_teacher = count_nonzero(state, axis=1)
+        num_teachers_per_course = count_nonzero(state, axis=0)
+        
+        if num_courses_per_teacher[num_courses_per_teacher > MAX_COURSES_PER_TEACHER].any():
+            return False
+
+        if num_teachers_per_course[num_teachers_per_course > MAX_TEACHERS_PER_COURSE].any():
+            return False
+
+        if num_teachers_per_course[num_teachers_per_course < MIN_TEACHERS_PER_COURSE].any():
+            return False
+        
+        return True
 
     def calcReward(self, valid_sched):
         r0 = 1
         ri = 1 
         card_c = self.obs_dict["courses"]
 
-        ct_pairs = [(loc[0], loc[1]) for loc in self.hyperedges.keys()]
-        p_hat = array([self.preferences[i, j] for i, j in ct_pairs])
+        tc_pairs = [(loc[0], loc[1]) for loc in self.hyperedges.keys()]
+        p_hat = array([self.preferences[i, j] for i, j in tc_pairs], dtype=self.dtype)
 
         R = sum(tanh(p_hat - median(self.P)))
 
@@ -88,8 +110,6 @@ class HyperGraphEnv(Env):
             R += r0 * card_c
 
         self.reward = R
-
-    def _get_obs(self):
-        pass
+        
 
     
