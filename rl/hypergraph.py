@@ -85,13 +85,13 @@ class HyperGraphEnv(Env):
         num_courses_per_teacher = count_nonzero(state, axis=1)
         num_teachers_per_course = count_nonzero(state, axis=0)
         
-        if num_courses_per_teacher[num_courses_per_teacher > MAX_COURSES_PER_TEACHER].any():
+        if num_courses_per_teacher[num_courses_per_teacher > MAX_COURSES_PER_TEACHER].any() == False:
             return False
 
-        if num_teachers_per_course[num_teachers_per_course > MAX_TEACHERS_PER_COURSE].any():
+        if num_teachers_per_course[num_teachers_per_course > MAX_TEACHERS_PER_COURSE].any() == False:
             return False
 
-        if num_teachers_per_course[num_teachers_per_course < MIN_TEACHERS_PER_COURSE].any():
+        if num_teachers_per_course[num_teachers_per_course < MIN_TEACHERS_PER_COURSE].any() == False:
             return False
         
         return True
