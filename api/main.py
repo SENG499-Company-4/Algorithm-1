@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from process import Process
-from models import Schedule
+from .process import Process
+from .models import Schedule
 
 app = FastAPI()
 

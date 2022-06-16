@@ -12,13 +12,11 @@ Algorithm 1 code repository for SENG499 Summer 2022 project.
 ## Server Usage
 
 ```
-uvicorn main:app --reload
+uvicorn api.main:app --reload
 ```
 
-To launch API documentation, navigate to `<server_address>/docs` in a browser, e.g., `http://localhost:8000/docs`.
+To make requests to the API, you can use a 3rd-party tool (e.g., curl, Postman), or you can use the build-in API docs.
 
-To use: 
+To launch interactive API documentation, navigate to `<server_address>/docs` in a browser, e.g., `http://localhost:8000/docs`.
 
-1. Run the server: `uvicorn main:app --reload`
-2. Use some sort of rest client such as Postman, curl, or Thunder Client and make a POST request to http://localhost:8000/generate
-3. Output will be preference data in JSON format!
+To make a request via the interactive API docs, click on an endpoint to expand, and click "Try it out." You can now edit the provided dummy request body. Click "Execute" to send the request. Response status and data will appear below.
