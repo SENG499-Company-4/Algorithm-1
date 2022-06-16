@@ -5,6 +5,5 @@ services:
     build:
       context: .
     image: algo1-api
-    command: uvicorn api.main:app --host 0.0.0.0 --port ${PORT}
     ports:
       - ${PORT}:${PORT}
