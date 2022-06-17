@@ -23,8 +23,8 @@ class HyperGraphEnv(Env):
         self.preferences = preferences
         self.num_actions = 0
         self.episode_length = ep_len
-        self.hyperedges = {}
         self.reward = 0
+        self.hyperedges = {}
         self.output_file_name = "logs/{}-render-output.txt".format(date.today().strftime("%d_%m_%Y"))
         self.output_to_file = True
 
@@ -33,9 +33,10 @@ class HyperGraphEnv(Env):
         valid_sched = self.isValidSchedule()
         done = self.isEndState(valid_sched)
         self.calcReward(valid_sched)
+        observation = self._get_obs()
         info = {}
 
-        return self.hyperedges, self.reward, done, info
+        return observation, self.reward, done, info
 
     def render(self):
         with open(self.output_file_name, 'w') as f:
@@ -48,12 +49,15 @@ class HyperGraphEnv(Env):
             print(json.dumps(self.hyperedges, indent=4, sort_keys=False), file=file)
             print("**************************************************", file=file)
 
-    def reset(self, seed=None):
+    def reset(self, seed=None, return_info=None):
         super().reset(seed=seed)
         self.num_actions = 0
-        self._agent_location = tuple(self.observation_space.sample())
         self.reward = 0
+        self._agent_location = tuple(self.observation_space.sample())
         self.hyperedges.clear()
+        observation = self._get_obs()
+        info = self._get_info()
+        return (observation, info) if return_info else observation
 
     def updateState(self, action):
         location = action.location
@@ -110,3 +114,10 @@ class HyperGraphEnv(Env):
             R += r0 * card_c
 
         self.reward = R
+
+    def _get_obs(self):
+        return {"hypergraph" : self.hyperedges, "preferences" : self.preferences}
+
+    def _get_info(self):
+        return {}
+        
