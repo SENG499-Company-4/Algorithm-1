@@ -4,7 +4,7 @@ import json
 from datetime import date
 import sys
 from action import Action
-from numpy import int16, array, zeros, tanh, median, sum, count_nonzero
+from numpy import int64, array, zeros, tanh, median, sum, count_nonzero
 
 MAX_COURSES_PER_TEACHER = 3
 MAX_TEACHERS_PER_COURSE = 1
@@ -14,7 +14,7 @@ MIN_TEACHERS_PER_COURSE = 1
 class HyperGraphEnv(Env):
     def __init__(self, obs_dict, act_dict, preferences, P, ep_len):
         super(HyperGraphEnv).__init__()
-        self.dtype = int16
+        self.dtype = int64
         self.obs_dict = obs_dict
         self.act_dict = act_dict
         self.observation_space = MultiDiscrete(tuple(obs_dict.values()))
@@ -42,7 +42,8 @@ class HyperGraphEnv(Env):
         pass
 
     def reset(self, seed=None, return_info=None):
-        super().reset(seed=seed)
+        if seed is not None:
+            super().reset(seed)
         self.num_actions = 0
         self.reward = 0
         self.hyperedges.clear()
@@ -116,7 +117,7 @@ class HyperGraphEnv(Env):
         observation[0, :, :] = state
         observation[-1, :, :] = self.preferences 
         
-        return observation
+        return state
 
     def _get_info(self):
         return {}
