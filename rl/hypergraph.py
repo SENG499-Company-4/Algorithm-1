@@ -50,7 +50,8 @@ class HyperGraphEnv(Env):
             print("**************************************************", file=file)
 
     def reset(self, seed=None, return_info=None):
-        super().reset(seed=seed)
+        if seed is not None:
+            super().seed(seed)
         self.num_actions = 0
         self.reward = 0
         self._agent_location = tuple(self.observation_space.sample())
