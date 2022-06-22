@@ -17,8 +17,10 @@ class HyperGraphEnv(Env):
         self.dtype = int16
         self.obs_dict = obs_dict
         self.act_dict = act_dict
-        self.observation_space = Box(low=0, high=1, shape=tuple(obs_dict.values()), dtype=self.dtype)
-        self.action_space = MultiDiscrete(tuple(act_dict.values()))
+        self.obs_shape = tuple(obs_dict.values())
+        self.act_shape = tuple(act_dict.values())
+        self.observation_space = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
+        self.action_space = MultiDiscrete(self.act_shape)
         self.P = P
         self.preferences = preferences
         self.num_actions = 0
@@ -99,8 +101,7 @@ class HyperGraphEnv(Env):
         self.reward = R
 
     def sparseToDense(self):
-        teachers, courses = self.obs_dict["teachers"], self.obs_dict["courses"]
-        state = zeros((teachers, courses), dtype=self.dtype)
+        state = zeros(self.obs_shape, dtype=self.dtype)
 
         for loc, conn in self.hyperedges.items():
             state[loc[0], loc[1]] = conn
