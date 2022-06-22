@@ -1,4 +1,4 @@
-from gym.spaces import MultiDiscrete
+from gym.spaces import Box, MultiDiscrete
 from gym import Env
 import json
 from datetime import date
@@ -17,7 +17,7 @@ class HyperGraphEnv(Env):
         self.dtype = int16
         self.obs_dict = obs_dict
         self.act_dict = act_dict
-        self.observation_space = MultiDiscrete(tuple(obs_dict.values()))
+        self.observation_space = Box(low=0, high=1, shape=tuple(obs_dict.values()), dtype=self.dtype)
         self.action_space = MultiDiscrete(tuple(act_dict.values()))
         self.P = P
         self.preferences = preferences
@@ -25,8 +25,6 @@ class HyperGraphEnv(Env):
         self.episode_length = ep_len
         self.reward = 0
         self.hyperedges = {}
-        self.output_file_name = "logs/{}-render-output.txt".format(date.today().strftime("%d_%m_%Y"))
-        self.output_to_file = True
 
     def step(self, action):
         self.updateState(action)
@@ -34,7 +32,7 @@ class HyperGraphEnv(Env):
         done = self.isEndState(valid_sched)
         self.calcReward(valid_sched)
         observation = self._get_obs()
-        info = {}
+        info = self._get_info()
 
         return observation, self.reward, done, info
 
@@ -110,14 +108,7 @@ class HyperGraphEnv(Env):
         return state
 
     def _get_obs(self):
-        state = self.sparseToDense()
-        shape = (2, state.shape[0], state.shape[1])
-        observation = zeros(shape, dtype=self.dtype)
-        observation[0, :, :] = state
-        observation[-1, :, :] = self.preferences 
-        
-        return observation
-
+        return self.sparseToDense()
+    
     def _get_info(self):
-        return {}
-        
+        return {}        
