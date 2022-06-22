@@ -1,3 +1,4 @@
+from gym.spaces import Box
 from hypergraph import HyperGraphEnv
 from action import Action
 import numpy as np
@@ -20,10 +21,9 @@ def main():
 
     for i in range(50):
         sample = hg.action_space.sample()
-        action = Action(tuple(sample[:-1]), sample[-1])
+        action = Action(sample)
         obs, rew, done, _ = hg.step(action)
-        print(f"done: {done}\nreward: {rew}\nobs:{obs}\n\n")
-
+        print(f"done: {done}\nreward: {rew}\nsparse:{hg.hyperedges}\ndense:\n{obs}\n\n")
         
     
 
