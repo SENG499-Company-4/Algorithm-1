@@ -10,7 +10,6 @@ class Preference(BaseModel):
 class Professor(BaseModel):
     prefs: list[Preference]
     displayName: str
-    requiredEquipment: list[str]
     fallTermCourses: int
     springTermCourses: int
     summerTermCourses: int
@@ -36,8 +35,6 @@ class Course(BaseModel):
     subject: str
     sequenceNumber: str
     courseTitle: str
-    requiredEquipment: list[str]
-    streamSequence: str
     meetingTime: Assignment
     prof: Professor
 
