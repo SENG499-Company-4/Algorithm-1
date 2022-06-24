@@ -1,4 +1,4 @@
-from gym.spaces import MultiDiscrete
+from gym.spaces import Box, MultiDiscrete
 from gym import Env
 import json
 from datetime import date
@@ -17,16 +17,16 @@ class HyperGraphEnv(Env):
         self.dtype = int64
         self.obs_dict = obs_dict
         self.act_dict = act_dict
-        self.observation_space = MultiDiscrete(tuple(obs_dict.values()))
-        self.action_space = MultiDiscrete(tuple(act_dict.values()))
+        self.obs_shape = tuple(obs_dict.values())
+        self.act_shape = tuple(act_dict.values())
+        self.observation_space = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
+        self.action_space = MultiDiscrete(self.act_shape)
         self.P = P
         self.preferences = preferences
         self.num_actions = 0
         self.episode_length = ep_len
         self.reward = 0
         self.hyperedges = {}
-        self.output_file_name = "logs/{}-render-output.txt".format(date.today().strftime("%d_%m_%Y"))
-        self.output_to_file = True
 
     def step(self, action):
         self.updateState(action)
@@ -34,7 +34,7 @@ class HyperGraphEnv(Env):
         done = self.isEndState(valid_sched)
         self.calcReward(valid_sched)
         observation = self._get_obs()
-        info = {}
+        info = self._get_info()
 
         return observation, self.reward, done, info
 
@@ -102,8 +102,7 @@ class HyperGraphEnv(Env):
         self.reward = R
 
     def sparseToDense(self):
-        teachers, courses = self.obs_dict["teachers"], self.obs_dict["courses"]
-        state = zeros((teachers, courses), dtype=self.dtype)
+        state = zeros(self.obs_shape, dtype=self.dtype)
 
         for loc, conn in self.hyperedges.items():
             state[loc[0], loc[1]] = conn
@@ -111,6 +110,7 @@ class HyperGraphEnv(Env):
         return state
 
     def _get_obs(self):
+<<<<<<< HEAD
         state = self.sparseToDense()
         shape = (2, state.shape[0], state.shape[1])
         observation = zeros(shape, dtype=self.dtype)
@@ -119,6 +119,9 @@ class HyperGraphEnv(Env):
         
         return state
 
+=======
+        return self.sparseToDense()
+    
+>>>>>>> origin/31-modify-environment-observation-output-for-agent-nn
     def _get_info(self):
-        return {}
-        
+        return {}        
