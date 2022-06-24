@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 
-from .process import Process
-from .models import Schedule
+from . import dummy
+from .models import Input, Schedule
 
 app = FastAPI()
 
 
-@app.post("/generate_schedule", response_model=Schedule)
-async def generate_schedule(schedule: Schedule):
+@app.post("/schedule", response_model=Schedule)
+async def generate_schedule(input: Input):
     """Generates a schedule"""
 
     # data = Process.process_spreadsheet()
