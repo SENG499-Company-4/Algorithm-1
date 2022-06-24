@@ -1,3 +1,5 @@
+"""Algorithm 1 API Application"""
+
 from fastapi import FastAPI
 
 from . import dummy
@@ -10,11 +12,7 @@ app = FastAPI()
 async def generate_schedule(input: Input):
     """Generates a schedule"""
 
-    # data = Process.process_spreadsheet()
-
-    return Schedule(fallTermCourses=[],
-                    springTermCourses=[],
-                    summerTermCourses=[])
+    return dummy.rand_schedule()
 
 
 @app.post("/check_schedule")
