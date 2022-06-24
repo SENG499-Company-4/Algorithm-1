@@ -1,8 +1,5 @@
 from gym.spaces import Box, MultiDiscrete
 from gym import Env
-import json
-from datetime import date
-import sys
 from action import Action
 from numpy import int64, array, zeros, tanh, median, sum, count_nonzero
 
@@ -51,7 +48,8 @@ class HyperGraphEnv(Env):
         info = self._get_info()
         return (observation, info) if return_info else observation
 
-    def updateState(self, action):
+    def updateState(self, act):
+        action = Action(act)
         location = action.location
         connection = action.connection
 

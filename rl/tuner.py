@@ -26,12 +26,13 @@ config = {
         "act_dict" : {"teachers":teachers, "courses":courses, "actions":actions},
         "P" : np.arange(7),
         "preferences" : np.random.randint(0, 7, (teachers, courses), dtype=np.int64),
-        "ep_len" : 500
+        "ep_len" : 250
     },
     #"disable_env_checking" : True,
     "num_gpus" : int(os.environ.get("RLLIB_NUM_GPUS", "0")),
-    "num_workers" : 1,
-    "framework" : "tf"
+    "num_workers" : 5,
+    "framework" : "torch",
+    "horizon" : 250
 }
 
 stop = {
