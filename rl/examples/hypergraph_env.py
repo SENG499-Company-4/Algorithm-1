@@ -1,6 +1,8 @@
+from gym.spaces import Box
 from hypergraph import HyperGraphEnv
 from action import Action
 import numpy as np
+from gym.utils.env_checker import check_env
 
 
 def main():
@@ -15,13 +17,13 @@ def main():
     prefs = np.random.randint(0, P.size, (teachers, courses), dtype=np.int64)
     ep_len = 500
     hg = HyperGraphEnv(obs_d, act_d, prefs, P, ep_len)
+    #check_env(hg)
 
     for i in range(50):
         sample = hg.action_space.sample()
-        action = Action(tuple(sample[:-1]), sample[-1])
+        action = Action(sample)
         obs, rew, done, _ = hg.step(action)
-        print(f"done: {done}\nreward: {rew}\nprefs:\n{obs['preferences']}\nhypergraph:\n{obs['hypergraph']}\n\n")
-
+        print(f"done: {done}\nreward: {rew}\nsparse:{hg.hyperedges}\ndense:\n{obs}\n\n")
         
     
 

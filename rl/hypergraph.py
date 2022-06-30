@@ -1,10 +1,7 @@
-from gym.spaces import MultiDiscrete
+from gym.spaces import Box, MultiDiscrete
 from gym import Env
-import json
-from datetime import date
-import sys
 from action import Action
-from numpy import int64, array, zeros, tanh, median, sum, count_nonzero
+from numpy import int16, float32, array, zeros, tanh, median, sum, count_nonzero
 
 MAX_COURSES_PER_TEACHER = 3
 MAX_TEACHERS_PER_COURSE = 1
@@ -14,19 +11,19 @@ MIN_TEACHERS_PER_COURSE = 1
 class HyperGraphEnv(Env):
     def __init__(self, obs_dict, act_dict, preferences, P, ep_len):
         super(HyperGraphEnv).__init__()
-        self.dtype = int64
+        self.dtype = int16
         self.obs_dict = obs_dict
         self.act_dict = act_dict
-        self.observation_space = MultiDiscrete(tuple(obs_dict.values()))
-        self.action_space = MultiDiscrete(tuple(act_dict.values()))
+        self.obs_shape = tuple(obs_dict.values())
+        self.act_shape = tuple(act_dict.values())
+        self.observation_space = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
+        self.action_space = MultiDiscrete(self.act_shape)
         self.P = P
         self.preferences = preferences
         self.num_actions = 0
         self.episode_length = ep_len
-        self.reward = 0
+        self.reward = 0.0
         self.hyperedges = {}
-        self.output_file_name = "logs/{}-render-output.txt".format(date.today().strftime("%d_%m_%Y"))
-        self.output_to_file = True
 
     def step(self, action):
         self.updateState(action)
@@ -34,35 +31,27 @@ class HyperGraphEnv(Env):
         done = self.isEndState(valid_sched)
         self.calcReward(valid_sched)
         observation = self._get_obs()
-        info = {}
+        info = self._get_info()
 
         return observation, self.reward, done, info
 
     def render(self):
-        with open(self.output_file_name, 'w') as f:
-            file = sys.stdout
-            if self.output_to_file:
-                file=f
-            print("Taken {} actions out of {} allowed for an episode.".format(self.num_actions, self.episode_length), file=file)
-            print("Agent is visting location: {}".format(self._agent_location), file=file)
-            print("Current state of hypergraph:", file=file)
-            print(json.dumps(self.hyperedges, indent=4, sort_keys=False), file=file)
-            print("**************************************************", file=file)
+        pass
 
     def reset(self, seed=None, return_info=None):
+        #if seed is not None: 
         super().reset(seed=seed)
         self.num_actions = 0
-        self.reward = 0
-        self._agent_location = tuple(self.observation_space.sample())
+        self.reward = 0.0
         self.hyperedges.clear()
         observation = self._get_obs()
         info = self._get_info()
         return (observation, info) if return_info else observation
 
-    def updateState(self, action):
+    def updateState(self, act):
+        action = Action(act)
         location = action.location
         connection = action.connection
-        self._agent_location = location
 
         if connection == 1:
             self.hyperedges[location] = 1
@@ -76,16 +65,13 @@ class HyperGraphEnv(Env):
     def isEndState(self, valid_sched):
         if self.num_actions >= self.episode_length \
                 or valid_sched:
+            print(f"Preferences: \n{self.preferences}\n")
+            print(f"State: \n{self.sparseToDense()}\n") # if it converges
             return True
         return False
 
     def isValidSchedule(self):
-        teachers, courses = self.obs_dict["teachers"], self.obs_dict["courses"]
-        state = zeros((teachers, courses), dtype=self.dtype)
-
-        for loc, conn in self.hyperedges.items():
-            state[loc[0], loc[1]] = conn
-
+        state = self.sparseToDense()
         num_courses_per_teacher = count_nonzero(state, axis=1)
         num_teachers_per_course = count_nonzero(state, axis=0)
         
@@ -101,6 +87,8 @@ class HyperGraphEnv(Env):
         return True
 
     def calcReward(self, valid_sched):
+        if valid_sched: 
+            return
         r0 = 1
         ri = 1 
         card_c = self.obs_dict["courses"]
@@ -108,16 +96,29 @@ class HyperGraphEnv(Env):
         tc_pairs = [(loc[0], loc[1]) for loc in self.hyperedges.keys()]
         p_hat = array([self.preferences[i, j] for i, j in tc_pairs], dtype=self.dtype)
 
-        R = sum(tanh(p_hat - median(self.P)))
+        R = sum(tanh(p_hat - median(self.P)), dtype=float32)
 
-        if valid_sched:
-            R += r0 * card_c
+        #if valid_sched:
+        R += r0 * card_c
 
         self.reward = R
 
-    def _get_obs(self):
-        return {"hypergraph" : self.hyperedges, "preferences" : self.preferences}
+    def sparseToDense(self):
+        state = zeros(self.obs_shape, dtype=self.dtype)
 
-    def _get_info(self):
-        return {}
+        for loc, conn in self.hyperedges.items():
+            state[loc[0], loc[1]] = conn
         
+        return state
+
+    def flatten_discrete(self):
+        """
+        Flattens the multi-discrete array to a 1-dimensional array
+        """
+        pass
+
+    def _get_obs(self):
+        return self.sparseToDense()
+    
+    def _get_info(self):
+        return {}        
