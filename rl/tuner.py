@@ -38,7 +38,7 @@ def main():
     courses = 15
     times = 3
     actions = 2
-    steps = 50 * courses
+    steps = 2 * courses
 
     env_config = {
         "obs_dict" : {"teachers":teachers, "courses":courses},
