@@ -1,7 +1,7 @@
 from gym.spaces import Box, MultiDiscrete
 from gym import Env
 from action import Action
-from numpy import int16, array, zeros, tanh, median, sum, count_nonzero
+from numpy import int16, float32, array, zeros, tanh, median, sum, count_nonzero
 
 MAX_COURSES_PER_TEACHER = 3
 MAX_TEACHERS_PER_COURSE = 1
@@ -22,7 +22,7 @@ class HyperGraphEnv(Env):
         self.preferences = preferences
         self.num_actions = 0
         self.episode_length = ep_len
-        self.reward = 0
+        self.reward = 0.0
         self.hyperedges = {}
 
     def step(self, action):
@@ -39,9 +39,10 @@ class HyperGraphEnv(Env):
         pass
 
     def reset(self, seed=None, return_info=None):
+        #if seed is not None: 
         super().reset(seed=seed)
         self.num_actions = 0
-        self.reward = 0
+        self.reward = 0.0
         self.hyperedges.clear()
         observation = self._get_obs()
         info = self._get_info()
@@ -64,6 +65,8 @@ class HyperGraphEnv(Env):
     def isEndState(self, valid_sched):
         if self.num_actions >= self.episode_length \
                 or valid_sched:
+            print(f"Preferences: \n{self.preferences}\n")
+            print(f"State: \n{self.sparseToDense()}\n") # if it converges
             return True
         return False
 
@@ -84,6 +87,8 @@ class HyperGraphEnv(Env):
         return True
 
     def calcReward(self, valid_sched):
+        if valid_sched: 
+            return
         r0 = 1
         ri = 1 
         card_c = self.obs_dict["courses"]
@@ -91,10 +96,10 @@ class HyperGraphEnv(Env):
         tc_pairs = [(loc[0], loc[1]) for loc in self.hyperedges.keys()]
         p_hat = array([self.preferences[i, j] for i, j in tc_pairs], dtype=self.dtype)
 
-        R = sum(tanh(p_hat - median(self.P)))
+        R = sum(tanh(p_hat - median(self.P)), dtype=float32)
 
-        if valid_sched:
-            R += r0 * card_c
+        #if valid_sched:
+        R += r0 * card_c
 
         self.reward = R
 
@@ -105,6 +110,12 @@ class HyperGraphEnv(Env):
             state[loc[0], loc[1]] = conn
         
         return state
+
+    def flatten_discrete(self):
+        """
+        Flattens the multi-discrete array to a 1-dimensional array
+        """
+        pass
 
     def _get_obs(self):
         return self.sparseToDense()
