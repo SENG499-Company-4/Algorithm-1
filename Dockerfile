@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY ./.env /code/
 COPY ./api /code/api
 COPY ./tp.xlsx /code
+COPY ./rl  /code/rl/
 
 #CMD ["python", "-m", "api.run"]
-CMD ["python", "rl/hypergraph_env.py"]
+CMD ["python", "rl/tuner.py"]

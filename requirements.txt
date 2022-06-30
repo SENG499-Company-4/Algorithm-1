@@ -1,10 +1,11 @@
+dm_tree==0.1.7
 fastapi==0.78.0
+gym==0.24.1
 openpyxl==3.0.10
 pandas==1.4.2
-python-dotenv==0.20.0
-uvicorn==0.17.6
-gym==0.24.1
 pytest==7.1.2
-dm_tree==0.1.7
-tabulate==0.8.10
+python-dotenv==0.20.0
 scikit-image==0.19.3
+tabulate==0.8.10
+tensorflow==2.9.1
+uvicorn==0.17.6
