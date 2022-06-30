@@ -1,7 +1,8 @@
-from gym.spaces import Box, MultiDiscrete
+from gym.spaces import Box, Discrete
 from gym import Env
 from action import Action
-from numpy import int8, float32, array, zeros, tanh, median, sum, count_nonzero
+from numpy import int8, float32, array, zeros, prod, tanh, median, sum, count_nonzero
+from itertools import product
 
 MAX_COURSES_PER_TEACHER = 3
 MAX_TEACHERS_PER_COURSE = 1
@@ -16,8 +17,11 @@ class HyperGraphEnv(Env):
         self.act_dict = act_dict
         self.obs_shape = tuple(obs_dict.values())
         self.act_shape = tuple(act_dict.values())
+        act_var = [range(var) for var in self.act_shape]
+        cart_prod = list(product(act_var[0], act_var[1], act_var[2]))
+        self.disc_to_multidisc = {idx : cart_prod[idx] for idx in range(len(cart_prod))}
         self.observation_space = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
-        self.action_space = MultiDiscrete(self.act_shape)
+        self.action_space = Discrete(prod(self.act_shape))
         self.P = P
         self.preferences = preferences
         self.num_actions = 0
@@ -49,7 +53,8 @@ class HyperGraphEnv(Env):
         return (observation, info) if return_info else observation
 
     def updateState(self, act):
-        action = Action(act)
+        action = self.disc_to_multidisc[act]
+        action = Action(action)
         location = action.location
         connection = action.connection
 
