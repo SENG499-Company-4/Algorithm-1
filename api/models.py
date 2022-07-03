@@ -2,15 +2,14 @@ from pydantic import BaseModel
 
 
 class Preference(BaseModel):
-    courseNum: str  # ex. CSC 226
-    preferenceNum: int  # ex. 6
-    term: str  # ex. fall
+    courseNum: str
+    preferenceNum: int
+    term: str
 
 
 class Professor(BaseModel):
     prefs: list[Preference]
     displayName: str
-    requiredEquipment: list[str]
     fallTermCourses: int
     springTermCourses: int
     summerTermCourses: int
@@ -36,8 +35,6 @@ class Course(BaseModel):
     subject: str
     sequenceNumber: str
     courseTitle: str
-    requiredEquipment: list[str]
-    streamSequence: str
     meetingTime: Assignment
     prof: Professor
 
@@ -46,3 +43,9 @@ class Schedule(BaseModel):
     fallTermCourses: list[Course]
     springTermCourses: list[Course]
     summerTermCourses: list[Course]
+
+
+class Input(BaseModel):
+    historicData: Schedule
+    coursesToSchedule: Schedule
+    professors: list[Professor]
