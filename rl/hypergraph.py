@@ -1,7 +1,8 @@
-from gym.spaces import Box, MultiDiscrete
+from gym.spaces import Box, Discrete
 from gym import Env
 from action import Action
-from numpy import int16, array, zeros, tanh, median, sum, count_nonzero
+from numpy import int8, float32, array, zeros, prod, tanh, median, sum, count_nonzero
+from itertools import product
 
 MAX_COURSES_PER_TEACHER = 3
 MAX_TEACHERS_PER_COURSE = 1
@@ -11,18 +12,21 @@ MIN_TEACHERS_PER_COURSE = 1
 class HyperGraphEnv(Env):
     def __init__(self, obs_dict, act_dict, preferences, P, ep_len):
         super(HyperGraphEnv).__init__()
-        self.dtype = int16
+        self.dtype = int8
         self.obs_dict = obs_dict
         self.act_dict = act_dict
         self.obs_shape = tuple(obs_dict.values())
         self.act_shape = tuple(act_dict.values())
+        act_var = [range(var) for var in self.act_shape]
+        cart_prod = list(product(act_var[0], act_var[1], act_var[2]))
+        self.disc_to_multidisc = {idx : cart_prod[idx] for idx in range(len(cart_prod))}
         self.observation_space = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
-        self.action_space = MultiDiscrete(self.act_shape)
+        self.action_space = Discrete(prod(self.act_shape))
         self.P = P
         self.preferences = preferences
         self.num_actions = 0
-        self.episode_length = ep_len
-        self.reward = 0
+        self.max_episode_steps = ep_len
+        self.reward = 0.0
         self.hyperedges = {}
 
     def step(self, action):
@@ -41,14 +45,16 @@ class HyperGraphEnv(Env):
     def reset(self, seed=None, return_info=None):
         super().reset(seed=seed)
         self.num_actions = 0
-        self.reward = 0
+        self.reward = 0.0
         self.hyperedges.clear()
         observation = self._get_obs()
         info = self._get_info()
+
         return (observation, info) if return_info else observation
 
     def updateState(self, act):
-        action = Action(act)
+        action = self.disc_to_multidisc[act]
+        action = Action(action)
         location = action.location
         connection = action.connection
 
@@ -62,7 +68,7 @@ class HyperGraphEnv(Env):
         self.num_actions += 1
 
     def isEndState(self, valid_sched):
-        if self.num_actions >= self.episode_length \
+        if self.num_actions >= self.max_episode_steps \
                 or valid_sched:
             return True
         return False
@@ -84,6 +90,8 @@ class HyperGraphEnv(Env):
         return True
 
     def calcReward(self, valid_sched):
+        if not valid_sched:
+            return
         r0 = 1
         ri = 1 
         card_c = self.obs_dict["courses"]
@@ -91,10 +99,10 @@ class HyperGraphEnv(Env):
         tc_pairs = [(loc[0], loc[1]) for loc in self.hyperedges.keys()]
         p_hat = array([self.preferences[i, j] for i, j in tc_pairs], dtype=self.dtype)
 
-        R = sum(tanh(p_hat - median(self.P)))
+        R = sum(tanh(p_hat - median(self.P)), dtype=float32)
 
-        if valid_sched:
-            R += r0 * card_c
+        #if valid_sched:
+        R += r0 * card_c
 
         self.reward = R
 
