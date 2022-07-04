@@ -1,7 +1,7 @@
-from gym.spaces import Box, Discrete
+from gym.spaces import Box, Discrete, Dict
 from gym import Env
 from action import Action
-from numpy import int8, float32, array, zeros, prod, tanh, median, sum, count_nonzero
+from numpy import int8, float32, array, zeros, ones, prod, tanh, median, sum, count_nonzero
 from itertools import product
 
 MAX_COURSES_PER_TEACHER = 3
@@ -30,11 +30,11 @@ class HyperGraphEnv(Env):
         self.hyperedges = {}
 
     def step(self, action):
-        self.updateState(action)
+        self.set_state(action)
         valid_sched = self.isValidSchedule()
         done = self.isEndState(valid_sched)
         self.calcReward(valid_sched)
-        observation = self._get_obs()
+        observation = self.get_state()
         info = self._get_info()
 
         return observation, self.reward, done, info
@@ -47,12 +47,12 @@ class HyperGraphEnv(Env):
         self.num_actions = 0
         self.reward = 0.0
         self.hyperedges.clear()
-        observation = self._get_obs()
+        observation = self.get_state()
         info = self._get_info()
 
         return (observation, info) if return_info else observation
 
-    def updateState(self, act):
+    def set_state(self, act):
         action = self.disc_to_multidisc[act]
         action = Action(action)
         location = action.location
@@ -114,8 +114,11 @@ class HyperGraphEnv(Env):
         
         return state
 
-    def _get_obs(self):
-        return self.sparseToDense()
+    def get_state(self):
+        #state = self.sparseToDense()
+        #valid_act = ones(self.obser, dtype=self.dtype)
+        valid_actions = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
+        return Dict({"obs" : self.observation_space, "action_mask" : valid_actions})
     
     def _get_info(self):
         return {}        

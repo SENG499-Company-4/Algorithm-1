@@ -3,8 +3,8 @@ from ray import tune
 from hypergraph import HyperGraphEnv
 from ray.rllib.agents import ppo
 from ray.tune.registry import register_env
+from ray.rllib.utils import check_env
 import numpy as np
-import os
 
 def env_creator(env_config):
     return HyperGraphEnv(
@@ -39,18 +39,20 @@ def main():
     times = 3
     actions = 2
 
-    config = {
+    env_config = {
+        "obs_dict" : {"teachers":teachers, "courses":courses},
+        "act_dict" : {"teachers":teachers, "courses":courses, "actions":actions},
+        "P" : np.arange(7),
+        "preferences" : prefs,
+        "ep_len" : 300
+    }
+
+    agent_config = {
         "env" : "HyperGraphEnv",
-        "env_config" : {
-            "obs_dict" : {"teachers":teachers, "courses":courses},
-            "act_dict" : {"teachers":teachers, "courses":courses, "actions":actions},
-            "P" : np.arange(7),
-            "preferences" : prefs,
-            "ep_len" : 300
-        },
+        "env_config" : env_config,
         "num_gpus" : 1,
         "num_workers" : 1,
-        "framework" : "tf2",
+        "framework" : "torch",
         "eager_tracing" : True,
         "horizon" : 300
     }
@@ -61,6 +63,9 @@ def main():
     }
     
     register_env("HyperGraphEnv", env_creator)
+    hg = env_creator(env_config)
+    check_env(hg)
+    
     ray.init(
         #object_store_memory = 2048 * 1024 * 1024,
         num_gpus = 1,
@@ -68,11 +73,11 @@ def main():
     )
 
     tune.run(
-        "APEX",
-        name = "HyperGraphEnv",
+        "AlphaZero",
+        name = "CartPole",
         local_dir = "./tune_output/",
         stop = stop,
-        config = config
+        config = agent_config
     )
 
 if __name__ == '__main__':
