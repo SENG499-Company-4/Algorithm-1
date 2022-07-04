@@ -108,18 +108,7 @@ class HyperGraphEnv(Env):
         return state
 
     def _get_obs(self):
-<<<<<<< HEAD
-        state = self.sparseToDense()
-        shape = (2, state.shape[0], state.shape[1])
-        observation = zeros(shape, dtype=self.dtype)
-        observation[0, :, :] = state
-        observation[-1, :, :] = self.preferences 
-        
-        return state
-
-=======
         return self.sparseToDense()
     
->>>>>>> origin/31-modify-environment-observation-output-for-agent-nn
     def _get_info(self):
         return {}        
