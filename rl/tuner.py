@@ -50,7 +50,7 @@ def main():
     agent_config = {
         "env" : "HyperGraphEnv",
         "env_config" : env_config,
-        "num_gpus" : 1,
+        "num_gpus" : 0,
         "num_workers" : 1,
         "framework" : "torch",
         "eager_tracing" : True,
@@ -68,12 +68,12 @@ def main():
     
     ray.init(
         #object_store_memory = 2048 * 1024 * 1024,
-        num_gpus = 1,
+        num_gpus = 0,
         num_cpus = 6
     )
 
     tune.run(
-        "AlphaZero",
+        "contrib/AlphaZero",
         name = "CartPole",
         local_dir = "./tune_output/",
         stop = stop,
