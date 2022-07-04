@@ -5,6 +5,8 @@ from ray.rllib.agents import ppo
 from ray.tune.registry import register_env
 from ray.rllib.utils import check_env
 import numpy as np
+from gym.spaces import Box, Discrete, Dict, MultiDiscrete
+
 
 def env_creator(env_config):
     return HyperGraphEnv(

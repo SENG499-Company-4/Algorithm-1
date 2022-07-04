@@ -1,4 +1,4 @@
-from gym.spaces import Box, Discrete, Dict
+from gym.spaces import Box, Discrete, Dict, MultiDiscrete
 from gym import Env
 from action import Action
 from numpy import int8, float32, array, zeros, ones, prod, tanh, median, sum, count_nonzero
@@ -20,7 +20,13 @@ class HyperGraphEnv(Env):
         act_var = [range(var) for var in self.act_shape]
         cart_prod = list(product(act_var[0], act_var[1], act_var[2]))
         self.disc_to_multidisc = {idx : cart_prod[idx] for idx in range(len(cart_prod))}
-        self.observation_space = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
+        self.observation_space = Dict(
+            {
+                "obs": Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype),
+                "action_mask": Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
+
+            }
+        )
         self.action_space = Discrete(prod(self.act_shape))
         self.P = P
         self.preferences = preferences
@@ -118,7 +124,7 @@ class HyperGraphEnv(Env):
         #state = self.sparseToDense()
         #valid_act = ones(self.obser, dtype=self.dtype)
         valid_actions = Box(low=0, high=1, shape=self.obs_shape, dtype=self.dtype)
-        return Dict({"obs" : self.observation_space, "action_mask" : valid_actions})
+        return self.sparseToDense()
     
     def _get_info(self):
         return {}        
