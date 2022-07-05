@@ -3,6 +3,8 @@ from gym import Env
 from action import Action
 from numpy import int8, float32, array, zeros, ones, prod, tanh, median, sum, count_nonzero
 from itertools import product
+import numpy as np
+from scipy.sparse import random
 
 MAX_COURSES_PER_TEACHER = 3
 MAX_TEACHERS_PER_COURSE = 1
@@ -53,10 +55,24 @@ class HyperGraphEnv(Env):
         self.num_actions = 0
         self.reward = 0.0
         self.hyperedges.clear()
+        self.preferences = self._randomize_matrix(self.obs_dict["courses"],self.obs_dict["teachers"])
         observation = self.get_state()
         info = self._get_info()
 
         return (observation, info) if return_info else observation
+
+    def _randomize_matrix(self, size_x, size_y) -> np.ndarray:
+        """
+        Creates a Preference matrix with randomized sparse values
+
+        size_x: num of courses (x-axis)
+        size_y: num of teachers (y-axis)
+        """
+        matrix = np.zeros(shape=(size_x, size_y), dtype=np.int8)
+        mask = random(size_x,size_y, density=0.25, data_rvs=np.ones, dtype=np.int8).astype(bool).A
+        random_matrix = np.random.randint(0, 7, size=matrix.shape)
+        matrix[mask] = random_matrix[mask]
+        return matrix
 
     def set_state(self, act):
         action = self.disc_to_multidisc[act]
