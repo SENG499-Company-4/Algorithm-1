@@ -1,4 +1,5 @@
 fastapi==0.78.0
+fastapi-code-generator==0.3.5
 openpyxl==3.0.10
 pandas==1.4.2
 python-dotenv==0.20.0
