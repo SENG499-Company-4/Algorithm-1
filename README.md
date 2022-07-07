@@ -61,3 +61,15 @@ You can then easily open the deployed app:
 ```
 heroku open
 ```
+
+## API Generation Tool
+
+> :warning: This tool is meant only to assist in generating function definitions and Pydantic models. Do not directly overwrite the actual codebase's `main.py` or `models.py`. These contain additional logic that would be erased.
+
+There is FastAPI code generator tool (added to `requirements.txt`) that generates FastAPI endpoint definitions and Pydantic models for FastAPI from an OpenAPI spec:
+
+```
+fastapi-codegen -i openapi.json -o temp/
+```
+
+`main.py` and `models.py` should appear in your `temp/` directory. You can use these as a guide to make sure the API code is adhering to the OpenAPI spec.
