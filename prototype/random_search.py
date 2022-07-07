@@ -3,8 +3,8 @@ import sys
 
 NUM_TRIES = 1000
 COURSE_PER_PROF = 3
-DECAY_RATE = 3
-BAD_ATTEMPT_MAX = 29
+COOLDOWN_RATE = 28
+BAD_ATTEMPT_MAX = 900
 
 hardcoded_matrix = [
     [ 0, 0, 0, 0, 0, 0, 195, 195, 0, 100, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20], 
@@ -40,7 +40,7 @@ hardcoded_matrix = [
 
 np.set_printoptions(threshold=sys.maxsize, linewidth=400)
 
-def random_search(pref_matrix, previous_scores = []):
+def random_search(pref_matrix, score_type = "sum"):
     matrix = np.array(pref_matrix)
     best_matrix = []
     best_score = 0
@@ -50,39 +50,64 @@ def random_search(pref_matrix, previous_scores = []):
     total_thrown_out = 0
     while n < NUM_TRIES:
         output_matrix = np.zeros(matrix.shape)
-        score = 0
         bad_attempts = 0
+        profs_cooldown = []
+        profs_teach_at_least_one = False
         while bad_attempts < BAD_ATTEMPT_MAX and np.sum(np.sum(output_matrix, axis = 0)) < matrix.shape[1]:
-            curr_prof = np.random.choice(matrix.shape[0])
-            #print("Selected prof: ", curr_prof)
+            if len(profs_cooldown) > 0:
+                curr_prof = np.random.choice(np.setdiff1d(np.arange(matrix.shape[0]), np.asarray(profs_cooldown, dtype=int)))
+            else:
+                curr_prof = np.random.choice(matrix.shape[0])
+
             if np.sum(output_matrix[curr_prof]) < COURSE_PER_PROF:
                 taken_courses = np.sum(output_matrix, axis = 0)
-                #print("Taken courses ", taken_courses)
+
                 free_courses = matrix[curr_prof] * np.logical_not(taken_courses).astype(int)
                 if np.all(free_courses == 0):
                     bad_attempts += 1
                     continue
-                #print("Free courses: ", free_courses)
-                #print("Argmax will be: ", np.flatnonzero(free_courses == np.max(free_courses)))
+               
                 selected = np.random.choice(np.flatnonzero(free_courses == np.max(free_courses)))
-                #print("Selected index: ", selected)
+                assert(matrix[curr_prof][selected] >= 20)
                 output_matrix[curr_prof][selected] = 1
-                score += matrix[curr_prof][selected]
-                #print("\n")
+
+                if profs_teach_at_least_one == False:
+                    profs_cooldown.append(curr_prof)
+                
+                if len(profs_cooldown) == matrix.shape[0]:
+                    profs_cooldown.clear()
+                    profs_teach_at_least_one = True
+
 
         n += 1
-        if bad_attempts < BAD_ATTEMPT_MAX:
-            assert(np.all(np.sum(output_matrix, axis = 0) == 1) == True)
-        else:
-            total_thrown_out += 1
-        '''
-        print()
-        print("Results of attempt ",  n)
-        print(score)
-        print(output_matrix)
-        print(np.sum(output_matrix, axis = 0))
-        '''
+        if n % 100 == 0:
+            print("Completed this many tries: ", n)
         
+        if bad_attempts >= BAD_ATTEMPT_MAX:
+            total_thrown_out += 1
+            continue
+
+        mula = (matrix * output_matrix).astype(int)
+        a = np.sum(mula, axis = 0)
+        #print("Making assertion on this: ", a)
+        assert(np.count_nonzero(a > 0) == output_matrix.shape[1])
+
+        score = 0
+        if score_type == "sum":
+            score = np.sum(output_matrix)
+        elif score_type == "mean":
+            score = np.mean(np.sum(output_matrix, axis=1))
+        elif score_type == "min_bad_pref":
+            mul = (matrix * output_matrix).astype(int)
+            score = (mul > 39).sum()
+        elif score_type == "no_bad_pref":
+            mul = (matrix * output_matrix).astype(int)
+            if (mul < 40).sum() == 0:
+                score = 1
+            else:
+                score = 0
+        else:
+            score = np.sum(output_matrix)
 
         if score > best_score:
             best_score = score
@@ -90,13 +115,12 @@ def random_search(pref_matrix, previous_scores = []):
         if score < worst_score:
             worst_score = score
 
-        if n % 10 == 0:
-            print("Completed this many tries: ", n)
+        
     
     print("Best Matrix was \n", best_matrix.astype(int))
     print("With best score of: ", best_score)
     print("Worst score seen was:", worst_score)
-    print("Visualizing original preferences \n", (matrix * output_matrix).astype(int))
+    print("Visualizing original preferences \n", (matrix * best_matrix).astype(int))
     print("Bad attempts: ", total_thrown_out)
 
         
@@ -110,7 +134,7 @@ def main():
     prefs = np.vectorize(mapping_dict.get)(prefs)
     
     
-    random_search(hardcoded_matrix)
+    random_search(hardcoded_matrix, score_type="min_bad_pref")
     return 0
 
 
