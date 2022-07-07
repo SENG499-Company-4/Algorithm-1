@@ -1,51 +1,81 @@
-from pydantic import BaseModel
+from __future__ import annotations
+
+from enum import Enum
+from typing import List, Optional, Union
+
+from pydantic import BaseModel, Field
 
 
-class Preference(BaseModel):
-    courseNum: str
-    preferenceNum: int
-    term: str
+class Assignment1(BaseModel):
+    pass
 
 
-class Professor(BaseModel):
-    prefs: list[Preference]
-    displayName: str
-    fallTermCourses: int
-    springTermCourses: int
-    summerTermCourses: int
+class Prof(BaseModel):
+    pass
 
 
 class Assignment(BaseModel):
-    startDate: str
-    endDate: str
-    beginTime: str
-    endtime: str
-    hoursWeek: float
-    sunday: bool
-    monday: bool
-    tuesday: bool
-    wednesday: bool
-    thursday: bool
-    friday: bool
-    saturday: bool
+    startDate: str = Field(..., example='Jan 07, 2019')
+    endDate: str = Field(..., example='Apr 05, 2019')
+    beginTime: str = Field(..., example='0830')
+    endTime: str = Field(..., example='0930')
+    hoursWeek: int = Field(..., example=3)
+    sunday: bool = Field(..., example=False)
+    monday: bool = Field(..., example=True)
+    tuesday: bool = Field(..., example=False)
+    wednesday: bool = Field(..., example=False)
+    thursday: bool = Field(..., example=True)
+    friday: bool = Field(..., example=False)
+    saturday: bool = Field(..., example=False)
+
+
+class Term(Enum):
+    FALL = 'FALL'
+    SPRING = 'SPRING'
+    SUMMER = 'SUMMER'
+
+
+class Preference(BaseModel):
+    courseNum: str = Field(..., example='CSC111')
+    preferenceNum: int = Field(..., example=0)
+    term: Optional[Term] = None
+
+
+class Professor(BaseModel):
+    preferences: List[Preference]
+    displayName: str = Field(..., example='Michael, Zastre')
+    fallTermCourses: Optional[int] = Field(None, example=1)
+    springTermCourses: Optional[int] = Field(None, example=1)
+    summerTermCourses: Optional[int] = Field(None, example=1)
 
 
 class Course(BaseModel):
-    courseNumber: str
-    subject: str
-    sequenceNumber: str
-    courseTitle: str
-    meetingTime: Assignment
-    prof: Professor
+    courseNumber: str = Field(..., example='111')
+    subject: str = Field(..., example='CSC')
+    sequenceNumber: str = Field(..., example='A01')
+    streamSequence: str = Field(..., example='1A')
+    courseTitle: str = Field(
+        ..., example='Fundamentals of Programming with Engineering Applications'
+    )
+    assignment: Optional[Union[List[Assignment], Assignment1]] = None
+    prof: Optional[Union[List[Professor], Prof]] = None
+    courseCapacity: int = Field(..., example=100)
+    numSections: int = Field(
+        ...,
+        description='Number of sections a course needs to be split into. Default 1.',
+        example=2,
+    )
 
 
 class Schedule(BaseModel):
-    fallTermCourses: list[Course]
-    springTermCourses: list[Course]
-    summerTermCourses: list[Course]
+    fallCourses: List[Course]
+    springCourses: List[Course]
+    summerCourses: List[Course]
 
 
-class Input(BaseModel):
-    historicData: Schedule
+class ScheduleConstraints(BaseModel):
+    hardScheduled: Schedule
     coursesToSchedule: Schedule
-    professors: list[Professor]
+    professors: List[Professor] = Field(
+        ..., description='List of professors and their preferences.'
+    )
