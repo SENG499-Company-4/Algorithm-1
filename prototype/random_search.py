@@ -77,13 +77,13 @@ CSC_matrix = [
 np.set_printoptions(threshold=sys.maxsize, linewidth=400)
 
 def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
-    matrix = np.array(pref_matrix)
-    best_matrix = []
-    best_score = 0
+    matrix = np.array(pref_matrix) #The original preference matrix as a numpy array.
+    best_matrix = [] #Save best output matrix here.
+    best_score = 0 #Score heuristic gets computed differently depending on score type.
     worst_score = 9999
     print("Given matrix:\n", matrix)
     n = 0
-    total_thrown_out = 0
+    total_thrown_out = 0 #Total invalid schedules discarded. In real scenarios this often ends up very high.
 
     if teaching_credits is None:
         teaching_credits = np.ones(matrix.shape[0]) * 3
@@ -96,6 +96,8 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
         while bad_attempts < BAD_ATTEMPT_MAX and np.sum(np.sum(output_matrix, axis = 0)) < matrix.shape[1]:
             if len(profs_cooldown) > 0:
                 curr_prof = np.random.choice(np.setdiff1d(np.arange(matrix.shape[0]), np.asarray(profs_cooldown, dtype=int)))
+                #We choose from a set difference of all profs and profs added to the cooldown list.
+                #This is done to ensure there are no profs who wind up with zero courses assigned.
             else:
                 curr_prof = np.random.choice(matrix.shape[0])
 
@@ -104,10 +106,13 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
 
                 free_courses = matrix[curr_prof] * np.logical_not(taken_courses).astype(int)
                 if np.all(free_courses == 0):
+                    #When we arrive at this case, it's because we managed to select a prof that can't be assigned to any course.
+                    #We increment bad attempts. If we keep doing this without assigning anyone, its probably an invalid schedule, so we throw it away.
                     bad_attempts += 1
                     continue
                
                 selected = np.random.choice(np.flatnonzero(free_courses == np.max(free_courses)))
+                #The flatnonzero part of this will get all max value occurences (ie. if a prof has 195 listed many times)
                 assert(matrix[curr_prof][selected] >= 20)
                 output_matrix[curr_prof][selected] = 1
 
@@ -117,6 +122,7 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
                 if len(profs_cooldown) == matrix.shape[0]:
                     profs_cooldown.clear()
                     profs_teach_at_least_one = True
+                    #If we just placed the last prof on cooldown, then every prof has at least one course.
 
 
         n += 1
