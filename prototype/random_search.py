@@ -6,7 +6,7 @@ COURSE_PER_PROF = 3
 COOLDOWN_RATE = 28
 BAD_ATTEMPT_MAX = 900
 
-hardcoded_matrix = [
+ECE_matrix = [
     [ 0, 0, 0, 0, 0, 0, 195, 195, 0, 100, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20], 
 	[ 0, 0, 0, 0, 40, 0, 0, 40, 0, 40, 0, 40, 0, 0, 0, 0, 195, 0, 0, 20, 40, 0, 0, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0], 
 	[ 0, 0, 40, 39, 0, 78, 20, 0, 0, 40, 78, 0, 0, 0, 40, 78, 0, 0, 0, 0, 0, 20, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 20], 
@@ -40,7 +40,7 @@ hardcoded_matrix = [
 
 np.set_printoptions(threshold=sys.maxsize, linewidth=400)
 
-def random_search(pref_matrix, score_type = "sum"):
+def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
     matrix = np.array(pref_matrix)
     best_matrix = []
     best_score = 0
@@ -48,6 +48,10 @@ def random_search(pref_matrix, score_type = "sum"):
     print("Given matrix:\n", matrix)
     n = 0
     total_thrown_out = 0
+
+    if teaching_credits is None:
+        teaching_credits = np.ones(matrix.shape[0]) * 3
+
     while n < NUM_TRIES:
         output_matrix = np.zeros(matrix.shape)
         bad_attempts = 0
@@ -59,7 +63,7 @@ def random_search(pref_matrix, score_type = "sum"):
             else:
                 curr_prof = np.random.choice(matrix.shape[0])
 
-            if np.sum(output_matrix[curr_prof]) < COURSE_PER_PROF:
+            if np.sum(output_matrix[curr_prof]) < teaching_credits[curr_prof]:
                 taken_courses = np.sum(output_matrix, axis = 0)
 
                 free_courses = matrix[curr_prof] * np.logical_not(taken_courses).astype(int)
@@ -115,14 +119,13 @@ def random_search(pref_matrix, score_type = "sum"):
         if score < worst_score:
             worst_score = score
 
-        
-    
     print("Best Matrix was \n", best_matrix.astype(int))
     print("With best score of: ", best_score)
     print("Worst score seen was:", worst_score)
     print("Visualizing original preferences \n", (matrix * best_matrix).astype(int))
     print("Bad attempts: ", total_thrown_out)
 
+    return best_matrix
         
 
 def main():
@@ -133,8 +136,8 @@ def main():
     prefs = np.random.randint(0, P.size, (teachers, courses), dtype=np.int64)
     prefs = np.vectorize(mapping_dict.get)(prefs)
     
-    
-    random_search(hardcoded_matrix, score_type="min_bad_pref")
+    hardcoded_relief = np.array([3, 3, 2, 2, 3, 2, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 2, 2, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3])
+    random_search(ECE_matrix, teaching_credits=hardcoded_relief, score_type="min_bad_pref")
     return 0
 
 
