@@ -46,6 +46,6 @@ class Schedule(BaseModel):
 
 
 class Input(BaseModel):
-    historicData: Schedule
+    hardScheduled: Schedule
     coursesToSchedule: Schedule
     professors: list[Professor]
