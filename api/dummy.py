@@ -15,15 +15,16 @@ COURSES = (
     ("CSC", "225", "Algorithms and Data Structures: I"),
     ("CSC", "226", "Algorithms and Data Structures: II"))
 SECTIONS = ("A01", "A02")
+STREAM_SEQUENCE=["S1A", "S1B", "S2A", "S2B", "S3A", "S3B", "S4A", "S4B"]
 PROFS = ("Bill Bird", "Daniela Damian", "Rich Little", "Michael Zastre")
 TERMS = ("FALL", "SPRING", "SUMMER")
 
 
 def rand_schedule():
     return Schedule(
-        fallTermCourses=[rand_course() for _ in range(randint(10, 20))],
-        springTermCourses=[rand_course() for _ in range(randint(10, 20))],
-        summerTermCourses=[rand_course() for _ in range(randint(10, 20))])
+        fallCourses=[rand_course() for _ in range(randint(10, 20))],
+        springCourses=[rand_course() for _ in range(randint(10, 20))],
+        summerCourses=[rand_course() for _ in range(randint(10, 20))])
 
 
 def rand_course():
@@ -33,9 +34,12 @@ def rand_course():
         courseNumber=number,
         subject=subject,
         sequenceNumber=choice(SECTIONS),
+        streamSequence=choice(STREAM_SEQUENCE),
         courseTitle=title,
-        meetingTime=rand_assignment(),
-        prof=rand_prof())
+        assignment=rand_assignment(),
+        prof=rand_prof(),
+        courseCapacity=100,
+        numSections=1)
 
 
 def rand_assignment():
@@ -64,7 +68,7 @@ def rand_time():
 
 def rand_prof():
     return Professor(
-        prefs=[rand_pref() for _ in range(randint(1, 5))],
+        preferences=[rand_pref() for _ in range(randint(1, 5))],
         displayName=choice(PROFS),
         fallTermCourses=randint(1, 10),
         springTermCourses=randint(1, 10),
