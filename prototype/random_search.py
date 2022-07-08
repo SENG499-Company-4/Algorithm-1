@@ -77,7 +77,7 @@ CSC_matrix = [
 
 np.set_printoptions(threshold=sys.maxsize, linewidth=400)
 
-def random_search_preference(pref_matrix, teaching_credits = None, iterations = 1000, score_type = "min_bad_pref"):
+def random_search_preference(pref_matrix, teaching_credits = None, iterations = 1000, distribute_work = True, score_type = "min_bad_pref"):
     matrix = np.array(pref_matrix) #The original preference matrix as a numpy array.
     best_matrix = [] #Save best output matrix here.
     best_score = 0 #Score heuristic gets computed differently depending on score type.
@@ -100,10 +100,8 @@ def random_search_preference(pref_matrix, teaching_credits = None, iterations = 
         profs_cooldown = []
         profs_teach_at_least_one = False
         while bad_attempts < BAD_ATTEMPT_MAX and np.sum(np.sum(output_matrix, axis = 0)) < matrix.shape[1]:
-            if len(profs_cooldown) > 0:
+            if len(profs_cooldown) > 0 and distribute_work:
                 curr_prof = np.random.choice(np.setdiff1d(np.arange(matrix.shape[0]), np.asarray(profs_cooldown, dtype=int)))
-                #We choose from a set difference of all profs and profs added to the cooldown list.
-                #This is done to ensure there are no profs who wind up with zero courses assigned.
             else:
                 curr_prof = np.random.choice(matrix.shape[0])
 
@@ -152,6 +150,9 @@ def random_search_preference(pref_matrix, teaching_credits = None, iterations = 
         elif score_type == "min_bad_pref":
             mul = (matrix * output_matrix).astype(int)
             score = (mul > 39).sum()
+            has_zero_row = (~output_matrix.any(axis=1)).any()
+            if has_zero_row == False:
+                score *= 100
         elif score_type == "no_bad_pref":
             mul = (matrix * output_matrix).astype(int)
             if (mul < 40).sum() == 0:
@@ -212,7 +213,7 @@ def main():
     relief_bad = [1, 2]
     
     hardcoded_relief = np.array([3, 3, 2, 2, 3, 2, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 2, 2, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3])
-    random_search_preference(prefs_bad, teaching_credits=relief_bad, iterations=10, score_type="min_bad_pref")
+    random_search_preference(prefs_bad, relief_bad, distribute_work=True, iterations=10, score_type="min_bad_pref")
     return 0
 
 
