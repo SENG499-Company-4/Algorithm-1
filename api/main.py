@@ -3,13 +3,13 @@
 from fastapi import FastAPI
 
 from . import dummy
-from .models import Input, Schedule
+from .models import Schedule, ScheduleConstraints
 
 app = FastAPI()
 
 
-@app.post("/schedule", response_model=Schedule)
-async def generate_schedule(input: Input):
+@app.post('/schedule', response_model=Schedule)
+def post_schedule(body: ScheduleConstraints) -> Schedule:
     """Generates a schedule"""
 
     return dummy.rand_schedule()
