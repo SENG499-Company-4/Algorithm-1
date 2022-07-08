@@ -1,13 +1,16 @@
-from .models import *
+""" Algorithm 1 Schedule Generation"""
+
 import numpy as np
 import math
+
+from .models import *
+from .output import matrixToSchedule
 from prototype.random_search import random_search
-from .formatOutput import matrixToSchedule
 
 #Max capacity for splitting sections
 MAX_SECTION_CAPACITY = 200
 
-def parseInput(input: ScheduleConstraints):
+def generateSchedule(input: ScheduleConstraints):
   """
   Parses Schedule Generation Input to prepare for Algorithm
   Creates Teacher/Preference Matrix and Professor Availabilities
@@ -37,42 +40,15 @@ def parseInput(input: ScheduleConstraints):
   matrix = profPrefMatrix(profs, prefs, courses) #Professor preference matrix for courses
 
   testPrint(profs, prefs, courses, avails, matrix)
+
+  #Run algorithm on teacher preference matrix
   output = random_search(matrix, avails)
 
+  #Convert algorithm output to Schedule object
   schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
 
   return schedule
 
-
-
-def parseProfs(profs: list[Professor]):
-  '''
-  Gets list of profesor display names
-  '''
-  prof_list = []
-
-  for prof in profs:
-    prof_list.append(prof.displayName)
-
-  return prof_list
-  
-
-def parseProfPrefs(profs: list[Professor]):
-  '''
-  Dictionary of professor preferences prefs[prof.displayName][courseNum] = preference
-  e.g prefs["Bill Bird"]["CSC116"] = 6
-  '''
-  preferences = {}
-
-  for prof in profs:
-    pref = {}
-
-    for course in prof.preferences:
-      pref[course.courseNum] = course.preferenceNum
-
-    preferences[prof.displayName] = pref
-
-  return preferences
 
 def parseCourses(courses: list[Course]):
   '''
@@ -104,6 +80,35 @@ def matchCourseID(courses: list[Course]):
     courseDict[courseID] = course
 
   return courseDict
+
+def parseProfs(profs: list[Professor]):
+  '''
+  Gets list of profesor display names
+  '''
+  prof_list = []
+
+  for prof in profs:
+    prof_list.append(prof.displayName)
+
+  return prof_list
+
+def parseProfPrefs(profs: list[Professor]):
+  '''
+  Dictionary of professor preferences prefs[prof.displayName][courseNum] = preference
+  e.g prefs["Bill Bird"]["CSC116"] = 6
+  '''
+  preferences = {}
+
+  for prof in profs:
+    pref = {}
+
+    for course in prof.preferences:
+      pref[course.courseNum] = course.preferenceNum
+
+    preferences[prof.displayName] = pref
+
+  return preferences
+
 
 def matchProfName(profs: list[Professor]):
   """
@@ -167,7 +172,6 @@ def profPrefMatrix(profs: list[str], prefs: dict, courses = list[str]):
       prefMatrix[prof_index][course_index] = int(pref)
 
   return prefMatrix
-
 
 def testPrint(profs, prefs, courses, avails, matrix):
   """
