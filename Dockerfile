@@ -9,6 +9,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 COPY ./.env /code/
 COPY ./api /code/api
+COPY ./prototype /code/prototype
 COPY ./tp.xlsx /code
 
 CMD ["python", "-m", "api.run"]
