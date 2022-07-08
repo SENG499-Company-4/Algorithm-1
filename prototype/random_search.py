@@ -113,7 +113,7 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
                
                 selected = np.random.choice(np.flatnonzero(free_courses == np.max(free_courses)))
                 #The flatnonzero part of this will get all max value occurences (ie. if a prof has 195 listed many times)
-                assert(matrix[curr_prof][selected] >= 20)
+                assert(matrix[curr_prof][selected] >= 1)
                 output_matrix[curr_prof][selected] = 1
 
                 if profs_teach_at_least_one == False:
