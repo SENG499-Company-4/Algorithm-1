@@ -1,7 +1,7 @@
 """Algorithm 1 Generation Output"""
 
 from calendar import c
-from .models import *
+from .models import Schedule, Course, Professor, Assignment
 from .dummy import rand_assignment
 import numpy as np
 
@@ -20,7 +20,7 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
 
   return Schedule Object where list corresponding to term is populated, other terms are empty lists 
   """
-  scheduledCourses = []
+  scheduled_courses = []
   n_courses = len(courses)
 
   matrix_t = np.transpose(matrix) # Transpose matrix to get arrays of courses
@@ -37,9 +37,9 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
     courseID = courses[course_idx]
     course = courseMatcher[courseID] 
 
-    courseObj = createCourse(course, prof, rand_assignment()) #TODO: Actual Assignments for courses
-    scheduledCourses.append(courseObj)
-    print(f"Prof {courseObj.prof.displayName} is teaching {courseObj.subject} {courseObj.courseNumber} {courseObj.sequenceNumber}")
+    course_obj = createCourse(course, prof, rand_assignment()) #TODO: Actual Assignments for courses
+    scheduled_courses.append(course_obj)
+    print(f"Prof {course_obj.prof.displayName} is teaching {course_obj.subject} {course_obj.courseNumber} {course_obj.sequenceNumber}")
 
   #Return schedule for given term, other terms are empty
   fall = []
@@ -47,11 +47,11 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
   spring = []
 
   if term == 'FALL':
-    fall = scheduledCourses
+    fall = scheduled_courses
   elif term == "SPRING":
-    spring == scheduledCourses
+    spring = scheduled_courses
   elif term == "SUMMER":
-    summer = scheduledCourses
+    summer = scheduled_courses
 
   return Schedule(
     fallCourses=fall,

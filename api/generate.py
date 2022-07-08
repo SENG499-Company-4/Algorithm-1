@@ -3,7 +3,7 @@
 import numpy as np
 import math
 
-from .models import *
+from .models import Professor, Course, ScheduleConstraints
 from .output import matrixToSchedule
 from prototype.random_search import random_search
 
