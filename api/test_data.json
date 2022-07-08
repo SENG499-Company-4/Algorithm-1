@@ -1,0 +1,4019 @@
+{
+    "hardScheduled": {
+        "fallTermCourses": [
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Jul 27, 2021",
+                    "endDate": "Aug 02, 2014",
+                    "beginTime": "1235",
+                    "endtime": "0652",
+                    "hoursWeek": 1.6557692876393215,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Apr 28, 2017",
+                    "endDate": "Aug 16, 2022",
+                    "beginTime": "0015",
+                    "endtime": "1107",
+                    "hoursWeek": 0.012837908743524196,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Sep 14, 2022",
+                    "endDate": "Mar 18, 2010",
+                    "beginTime": "2010",
+                    "endtime": "1641",
+                    "hoursWeek": 4.771630461410705,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 5,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Jan 06, 2019",
+                    "endDate": "Sep 24, 2011",
+                    "beginTime": "0411",
+                    "endtime": "1801",
+                    "hoursWeek": 3.819868138808915,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Mar 23, 2016",
+                    "endDate": "Dec 21, 2010",
+                    "beginTime": "1855",
+                    "endtime": "1645",
+                    "hoursWeek": 4.434924439162264,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 10,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Aug 16, 2016",
+                    "endDate": "Jul 12, 2017",
+                    "beginTime": "0623",
+                    "endtime": "1246",
+                    "hoursWeek": 0.3649483595269414,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 7,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "226",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: II",
+                "meetingTime": {
+                    "startDate": "Sep 17, 2021",
+                    "endDate": "Nov 11, 2020",
+                    "beginTime": "0759",
+                    "endtime": "0436",
+                    "hoursWeek": 5.53609350096554,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 8,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Dec 18, 2011",
+                    "endDate": "Feb 08, 2017",
+                    "beginTime": "1849",
+                    "endtime": "0542",
+                    "hoursWeek": 1.199052908336164,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 9,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Sep 28, 2010",
+                    "endDate": "Oct 28, 2021",
+                    "beginTime": "0802",
+                    "endtime": "1816",
+                    "hoursWeek": 1.7137865964920695,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A02",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Mar 17, 2013",
+                    "endDate": "Sep 09, 2015",
+                    "beginTime": "2208",
+                    "endtime": "1242",
+                    "hoursWeek": 2.7790225947691516,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 8,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "Jan 20, 2011",
+                    "endDate": "Jun 06, 2011",
+                    "beginTime": "2101",
+                    "endtime": "1348",
+                    "hoursWeek": 0.042885004031214535,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Feb 19, 2015",
+                    "endDate": "Jul 08, 2017",
+                    "beginTime": "0246",
+                    "endtime": "1133",
+                    "hoursWeek": 0.9673542148674374,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 8,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 3
+                }
+            }
+        ],
+        "springTermCourses": [
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Dec 09, 2014",
+                    "endDate": "May 08, 2018",
+                    "beginTime": "2140",
+                    "endtime": "0316",
+                    "hoursWeek": 2.3322804329823055,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 8,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 10,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "426",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Software Quality Engineering",
+                "meetingTime": {
+                    "startDate": "Jul 23, 2020",
+                    "endDate": "Apr 12, 2018",
+                    "beginTime": "2011",
+                    "endtime": "2004",
+                    "hoursWeek": 2.224402924765639,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Nov 02, 2020",
+                    "endDate": "Apr 16, 2015",
+                    "beginTime": "1809",
+                    "endtime": "2029",
+                    "hoursWeek": 1.6173099503514978,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 7,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "Apr 16, 2020",
+                    "endDate": "Feb 11, 2015",
+                    "beginTime": "2016",
+                    "endtime": "1939",
+                    "hoursWeek": 3.6161087007046557,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 4,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Feb 06, 2012",
+                    "endDate": "Feb 04, 2015",
+                    "beginTime": "2045",
+                    "endtime": "1145",
+                    "hoursWeek": 0.6052346880040238,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 6,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 7,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Sep 23, 2020",
+                    "endDate": "Sep 11, 2018",
+                    "beginTime": "0457",
+                    "endtime": "1517",
+                    "hoursWeek": 1.2288575639544856,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 9,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "260",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Continuous-Time Signals and Systems",
+                "meetingTime": {
+                    "startDate": "May 26, 2015",
+                    "endDate": "Nov 27, 2018",
+                    "beginTime": "2105",
+                    "endtime": "1626",
+                    "hoursWeek": 5.563995011896212,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 9,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "426",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Software Quality Engineering",
+                "meetingTime": {
+                    "startDate": "Dec 06, 2012",
+                    "endDate": "Nov 01, 2018",
+                    "beginTime": "0942",
+                    "endtime": "1724",
+                    "hoursWeek": 1.85904183307386,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "426",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Software Quality Engineering",
+                "meetingTime": {
+                    "startDate": "Mar 21, 2013",
+                    "endDate": "Jul 20, 2022",
+                    "beginTime": "1834",
+                    "endtime": "0338",
+                    "hoursWeek": 1.2324630132400527,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Nov 13, 2013",
+                    "endDate": "Jan 05, 2010",
+                    "beginTime": "1915",
+                    "endtime": "0321",
+                    "hoursWeek": 4.80172893725345,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 4
+                }
+            },
+            {
+                "courseNumber": "110",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Fundamentals of Programming: I",
+                "meetingTime": {
+                    "startDate": "Nov 04, 2013",
+                    "endDate": "Dec 21, 2011",
+                    "beginTime": "0847",
+                    "endtime": "1005",
+                    "hoursWeek": 5.38075288066011,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 6,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 4
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Sep 18, 2014",
+                    "endDate": "Mar 19, 2018",
+                    "beginTime": "1420",
+                    "endtime": "1808",
+                    "hoursWeek": 3.984767260501413,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 4,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 10,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 10
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Jan 16, 2011",
+                    "endDate": "Oct 01, 2018",
+                    "beginTime": "1601",
+                    "endtime": "1717",
+                    "hoursWeek": 5.901392712081742,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Apr 03, 2016",
+                    "endDate": "Feb 10, 2012",
+                    "beginTime": "1921",
+                    "endtime": "1437",
+                    "hoursWeek": 2.966573082965528,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 8,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Sep 05, 2015",
+                    "endDate": "Nov 24, 2020",
+                    "beginTime": "0955",
+                    "endtime": "0358",
+                    "hoursWeek": 4.165887197192579,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Sep 15, 2021",
+                    "endDate": "Oct 13, 2018",
+                    "beginTime": "1753",
+                    "endtime": "1632",
+                    "hoursWeek": 3.9444634914276175,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "110",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Fundamentals of Programming: I",
+                "meetingTime": {
+                    "startDate": "Feb 26, 2021",
+                    "endDate": "Aug 28, 2010",
+                    "beginTime": "1334",
+                    "endtime": "0814",
+                    "hoursWeek": 5.2161556217137965,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 7,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 4
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Mar 21, 2010",
+                    "endDate": "May 23, 2017",
+                    "beginTime": "1253",
+                    "endtime": "0039",
+                    "hoursWeek": 0.5832386002858361,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 9,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 10,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A02",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Aug 17, 2013",
+                    "endDate": "Mar 25, 2014",
+                    "beginTime": "0200",
+                    "endtime": "1927",
+                    "hoursWeek": 2.5443333753791513,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 5,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Nov 08, 2019",
+                    "endDate": "Jul 17, 2013",
+                    "beginTime": "1949",
+                    "endtime": "0447",
+                    "hoursWeek": 2.1507219886892006,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 4,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 5
+                }
+            }
+        ],
+        "summerTermCourses": [
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "May 25, 2013",
+                    "endDate": "Oct 18, 2021",
+                    "beginTime": "0507",
+                    "endtime": "1127",
+                    "hoursWeek": 5.098837103676355,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Dec 13, 2019",
+                    "endDate": "Jul 13, 2010",
+                    "beginTime": "1258",
+                    "endtime": "1340",
+                    "hoursWeek": 3.163114011836847,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 5,
+                    "summerTermCourses": 10
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Jul 28, 2016",
+                    "endDate": "Mar 26, 2010",
+                    "beginTime": "1535",
+                    "endtime": "2008",
+                    "hoursWeek": 1.4336293734971792,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Aug 13, 2015",
+                    "endDate": "May 12, 2013",
+                    "beginTime": "0414",
+                    "endtime": "0836",
+                    "hoursWeek": 1.7376572718336694,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 3,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Aug 05, 2020",
+                    "endDate": "Jan 07, 2011",
+                    "beginTime": "1907",
+                    "endtime": "0135",
+                    "hoursWeek": 0.7413469042570506,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 10,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 9,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Jan 25, 2019",
+                    "endDate": "Feb 14, 2021",
+                    "beginTime": "0739",
+                    "endtime": "1018",
+                    "hoursWeek": 3.7876557648290534,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 4,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Jan 12, 2014",
+                    "endDate": "Mar 21, 2018",
+                    "beginTime": "2231",
+                    "endtime": "2107",
+                    "hoursWeek": 2.8809256627975603,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 9,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Feb 07, 2022",
+                    "endDate": "Aug 06, 2012",
+                    "beginTime": "0226",
+                    "endtime": "1103",
+                    "hoursWeek": 0.1936836717764594,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Oct 05, 2022",
+                    "endDate": "Dec 18, 2020",
+                    "beginTime": "1006",
+                    "endtime": "0023",
+                    "hoursWeek": 1.2640181720141095,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Nov 25, 2013",
+                    "endDate": "Aug 04, 2013",
+                    "beginTime": "1454",
+                    "endtime": "0040",
+                    "hoursWeek": 5.623594247835108,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 7,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "Apr 25, 2020",
+                    "endDate": "Aug 26, 2020",
+                    "beginTime": "0321",
+                    "endtime": "2238",
+                    "hoursWeek": 0.2932478669087031,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 4,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Dec 11, 2020",
+                    "endDate": "Apr 02, 2014",
+                    "beginTime": "0534",
+                    "endtime": "0137",
+                    "hoursWeek": 4.058419390104094,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 6,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Aug 03, 2013",
+                    "endDate": "Nov 22, 2021",
+                    "beginTime": "2123",
+                    "endtime": "1354",
+                    "hoursWeek": 5.7463562454027075,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 9,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Aug 25, 2011",
+                    "endDate": "Sep 12, 2022",
+                    "beginTime": "0136",
+                    "endtime": "1630",
+                    "hoursWeek": 4.122637640737829,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 8,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 8,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 9
+                }
+            }
+        ]
+    },
+    "coursesToSchedule": {
+        "fallTermCourses": [
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Jul 27, 2021",
+                    "endDate": "Aug 02, 2014",
+                    "beginTime": "1235",
+                    "endtime": "0652",
+                    "hoursWeek": 1.6557692876393215,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Apr 28, 2017",
+                    "endDate": "Aug 16, 2022",
+                    "beginTime": "0015",
+                    "endtime": "1107",
+                    "hoursWeek": 0.012837908743524196,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Sep 14, 2022",
+                    "endDate": "Mar 18, 2010",
+                    "beginTime": "2010",
+                    "endtime": "1641",
+                    "hoursWeek": 4.771630461410705,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 5,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Jan 06, 2019",
+                    "endDate": "Sep 24, 2011",
+                    "beginTime": "0411",
+                    "endtime": "1801",
+                    "hoursWeek": 3.819868138808915,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Mar 23, 2016",
+                    "endDate": "Dec 21, 2010",
+                    "beginTime": "1855",
+                    "endtime": "1645",
+                    "hoursWeek": 4.434924439162264,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 10,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Aug 16, 2016",
+                    "endDate": "Jul 12, 2017",
+                    "beginTime": "0623",
+                    "endtime": "1246",
+                    "hoursWeek": 0.3649483595269414,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 7,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "226",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: II",
+                "meetingTime": {
+                    "startDate": "Sep 17, 2021",
+                    "endDate": "Nov 11, 2020",
+                    "beginTime": "0759",
+                    "endtime": "0436",
+                    "hoursWeek": 5.53609350096554,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 8,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Dec 18, 2011",
+                    "endDate": "Feb 08, 2017",
+                    "beginTime": "1849",
+                    "endtime": "0542",
+                    "hoursWeek": 1.199052908336164,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 9,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Sep 28, 2010",
+                    "endDate": "Oct 28, 2021",
+                    "beginTime": "0802",
+                    "endtime": "1816",
+                    "hoursWeek": 1.7137865964920695,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A02",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Mar 17, 2013",
+                    "endDate": "Sep 09, 2015",
+                    "beginTime": "2208",
+                    "endtime": "1242",
+                    "hoursWeek": 2.7790225947691516,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 8,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "Jan 20, 2011",
+                    "endDate": "Jun 06, 2011",
+                    "beginTime": "2101",
+                    "endtime": "1348",
+                    "hoursWeek": 0.042885004031214535,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Feb 19, 2015",
+                    "endDate": "Jul 08, 2017",
+                    "beginTime": "0246",
+                    "endtime": "1133",
+                    "hoursWeek": 0.9673542148674374,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 8,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 3
+                }
+            }
+        ],
+        "springTermCourses": [
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Dec 09, 2014",
+                    "endDate": "May 08, 2018",
+                    "beginTime": "2140",
+                    "endtime": "0316",
+                    "hoursWeek": 2.3322804329823055,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 8,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 10,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "426",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Software Quality Engineering",
+                "meetingTime": {
+                    "startDate": "Jul 23, 2020",
+                    "endDate": "Apr 12, 2018",
+                    "beginTime": "2011",
+                    "endtime": "2004",
+                    "hoursWeek": 2.224402924765639,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Nov 02, 2020",
+                    "endDate": "Apr 16, 2015",
+                    "beginTime": "1809",
+                    "endtime": "2029",
+                    "hoursWeek": 1.6173099503514978,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 7,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "Apr 16, 2020",
+                    "endDate": "Feb 11, 2015",
+                    "beginTime": "2016",
+                    "endtime": "1939",
+                    "hoursWeek": 3.6161087007046557,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 4,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Feb 06, 2012",
+                    "endDate": "Feb 04, 2015",
+                    "beginTime": "2045",
+                    "endtime": "1145",
+                    "hoursWeek": 0.6052346880040238,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 6,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 7,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Sep 23, 2020",
+                    "endDate": "Sep 11, 2018",
+                    "beginTime": "0457",
+                    "endtime": "1517",
+                    "hoursWeek": 1.2288575639544856,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 9,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 7,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "260",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Continuous-Time Signals and Systems",
+                "meetingTime": {
+                    "startDate": "May 26, 2015",
+                    "endDate": "Nov 27, 2018",
+                    "beginTime": "2105",
+                    "endtime": "1626",
+                    "hoursWeek": 5.563995011896212,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 9,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "426",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Software Quality Engineering",
+                "meetingTime": {
+                    "startDate": "Dec 06, 2012",
+                    "endDate": "Nov 01, 2018",
+                    "beginTime": "0942",
+                    "endtime": "1724",
+                    "hoursWeek": 1.85904183307386,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "426",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Software Quality Engineering",
+                "meetingTime": {
+                    "startDate": "Mar 21, 2013",
+                    "endDate": "Jul 20, 2022",
+                    "beginTime": "1834",
+                    "endtime": "0338",
+                    "hoursWeek": 1.2324630132400527,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Nov 13, 2013",
+                    "endDate": "Jan 05, 2010",
+                    "beginTime": "1915",
+                    "endtime": "0321",
+                    "hoursWeek": 4.80172893725345,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 4
+                }
+            },
+            {
+                "courseNumber": "110",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Fundamentals of Programming: I",
+                "meetingTime": {
+                    "startDate": "Nov 04, 2013",
+                    "endDate": "Dec 21, 2011",
+                    "beginTime": "0847",
+                    "endtime": "1005",
+                    "hoursWeek": 5.38075288066011,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 6,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 4
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Sep 18, 2014",
+                    "endDate": "Mar 19, 2018",
+                    "beginTime": "1420",
+                    "endtime": "1808",
+                    "hoursWeek": 3.984767260501413,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 4,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 10,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 10
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Jan 16, 2011",
+                    "endDate": "Oct 01, 2018",
+                    "beginTime": "1601",
+                    "endtime": "1717",
+                    "hoursWeek": 5.901392712081742,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Apr 03, 2016",
+                    "endDate": "Feb 10, 2012",
+                    "beginTime": "1921",
+                    "endtime": "1437",
+                    "hoursWeek": 2.966573082965528,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 8,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Sep 05, 2015",
+                    "endDate": "Nov 24, 2020",
+                    "beginTime": "0955",
+                    "endtime": "0358",
+                    "hoursWeek": 4.165887197192579,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 3,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Sep 15, 2021",
+                    "endDate": "Oct 13, 2018",
+                    "beginTime": "1753",
+                    "endtime": "1632",
+                    "hoursWeek": 3.9444634914276175,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "110",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Fundamentals of Programming: I",
+                "meetingTime": {
+                    "startDate": "Feb 26, 2021",
+                    "endDate": "Aug 28, 2010",
+                    "beginTime": "1334",
+                    "endtime": "0814",
+                    "hoursWeek": 5.2161556217137965,
+                    "sunday": false,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 7,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 4
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Mar 21, 2010",
+                    "endDate": "May 23, 2017",
+                    "beginTime": "1253",
+                    "endtime": "0039",
+                    "hoursWeek": 0.5832386002858361,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 9,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 10,
+                    "springTermCourses": 4,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A02",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Aug 17, 2013",
+                    "endDate": "Mar 25, 2014",
+                    "beginTime": "0200",
+                    "endtime": "1927",
+                    "hoursWeek": 2.5443333753791513,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 5,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Nov 08, 2019",
+                    "endDate": "Jul 17, 2013",
+                    "beginTime": "1949",
+                    "endtime": "0447",
+                    "hoursWeek": 2.1507219886892006,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 4,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 5
+                }
+            }
+        ],
+        "summerTermCourses": [
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "May 25, 2013",
+                    "endDate": "Oct 18, 2021",
+                    "beginTime": "0507",
+                    "endtime": "1127",
+                    "hoursWeek": 5.098837103676355,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Dec 13, 2019",
+                    "endDate": "Jul 13, 2010",
+                    "beginTime": "1258",
+                    "endtime": "1340",
+                    "hoursWeek": 3.163114011836847,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 5,
+                    "summerTermCourses": 10
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Jul 28, 2016",
+                    "endDate": "Mar 26, 2010",
+                    "beginTime": "1535",
+                    "endtime": "2008",
+                    "hoursWeek": 1.4336293734971792,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Aug 13, 2015",
+                    "endDate": "May 12, 2013",
+                    "beginTime": "0414",
+                    "endtime": "0836",
+                    "hoursWeek": 1.7376572718336694,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 3,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 5,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "499",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Design Project II",
+                "meetingTime": {
+                    "startDate": "Aug 05, 2020",
+                    "endDate": "Jan 07, 2011",
+                    "beginTime": "1907",
+                    "endtime": "0135",
+                    "hoursWeek": 0.7413469042570506,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 10,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 7,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 9,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Jan 25, 2019",
+                    "endDate": "Feb 14, 2021",
+                    "beginTime": "0739",
+                    "endtime": "1018",
+                    "hoursWeek": 3.7876557648290534,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 4,
+                    "springTermCourses": 10,
+                    "summerTermCourses": 5
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Jan 12, 2014",
+                    "endDate": "Mar 21, 2018",
+                    "beginTime": "2231",
+                    "endtime": "2107",
+                    "hoursWeek": 2.8809256627975603,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 9,
+                    "springTermCourses": 7,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Feb 07, 2022",
+                    "endDate": "Aug 06, 2012",
+                    "beginTime": "0226",
+                    "endtime": "1103",
+                    "hoursWeek": 0.1936836717764594,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 5,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 2,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 2
+                }
+            },
+            {
+                "courseNumber": "355",
+                "subject": "ECE",
+                "sequenceNumber": "A01",
+                "courseTitle": "Microprocessor-Based Systems",
+                "meetingTime": {
+                    "startDate": "Oct 05, 2022",
+                    "endDate": "Dec 18, 2020",
+                    "beginTime": "1006",
+                    "endtime": "0023",
+                    "hoursWeek": 1.2640181720141095,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": true,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 2,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Bill Bird",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 7
+                }
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Algorithms and Data Structures: I",
+                "meetingTime": {
+                    "startDate": "Nov 25, 2013",
+                    "endDate": "Aug 04, 2013",
+                    "beginTime": "1454",
+                    "endtime": "0040",
+                    "hoursWeek": 5.623594247835108,
+                    "sunday": false,
+                    "monday": false,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": false,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 10,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 5,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 7,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "ECE355",
+                            "preferenceNum": 2,
+                            "term": "SPRING"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 5,
+                    "springTermCourses": 1,
+                    "summerTermCourses": 9
+                }
+            },
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A02",
+                "courseTitle": "Security Engineering",
+                "meetingTime": {
+                    "startDate": "Apr 25, 2020",
+                    "endDate": "Aug 26, 2020",
+                    "beginTime": "0321",
+                    "endtime": "2238",
+                    "hoursWeek": 0.2932478669087031,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 1,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 6,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 1,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 4,
+                            "term": "FALL"
+                        }
+                    ],
+                    "displayName": "Daniela Damian",
+                    "fallTermCourses": 8,
+                    "springTermCourses": 6,
+                    "summerTermCourses": 1
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Dec 11, 2020",
+                    "endDate": "Apr 02, 2014",
+                    "beginTime": "0534",
+                    "endtime": "0137",
+                    "hoursWeek": 4.058419390104094,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": false,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG426",
+                            "preferenceNum": 4,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC225",
+                            "preferenceNum": 3,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 2,
+                            "term": "SUMMER"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 6,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 6,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 6
+                }
+            },
+            {
+                "courseNumber": "440",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "courseTitle": "Embedded Systems",
+                "meetingTime": {
+                    "startDate": "Aug 03, 2013",
+                    "endDate": "Nov 22, 2021",
+                    "beginTime": "2123",
+                    "endtime": "1354",
+                    "hoursWeek": 5.7463562454027075,
+                    "sunday": true,
+                    "monday": false,
+                    "tuesday": false,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": false
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "SENG360",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 9,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC226",
+                            "preferenceNum": 3,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 10,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Rich Little",
+                    "fallTermCourses": 1,
+                    "springTermCourses": 9,
+                    "summerTermCourses": 3
+                }
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A02",
+                "courseTitle": "Foundations of Computer Science",
+                "meetingTime": {
+                    "startDate": "Aug 25, 2011",
+                    "endDate": "Sep 12, 2022",
+                    "beginTime": "0136",
+                    "endtime": "1630",
+                    "hoursWeek": 4.122637640737829,
+                    "sunday": true,
+                    "monday": true,
+                    "tuesday": true,
+                    "wednesday": true,
+                    "thursday": false,
+                    "friday": true,
+                    "saturday": true
+                },
+                "prof": {
+                    "prefs": [
+                        {
+                            "courseNum": "ECE260",
+                            "preferenceNum": 1,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "CSC320",
+                            "preferenceNum": 8,
+                            "term": "FALL"
+                        },
+                        {
+                            "courseNum": "SENG440",
+                            "preferenceNum": 6,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "CSC110",
+                            "preferenceNum": 8,
+                            "term": "SPRING"
+                        },
+                        {
+                            "courseNum": "SENG499",
+                            "preferenceNum": 8,
+                            "term": "SUMMER"
+                        }
+                    ],
+                    "displayName": "Michael Zastre",
+                    "fallTermCourses": 3,
+                    "springTermCourses": 2,
+                    "summerTermCourses": 9
+                }
+            }
+        ]
+    },
+    "professors": [
+        {
+            "prefs": [
+                {
+                    "courseNum": "CSC110",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                }
+            ],
+            "displayName": "Bill Bird",
+            "fallTermCourses": 0,
+            "springTermCourses": 0,
+            "summerTermCourses": 0
+        },
+        {
+            "prefs": [
+                {
+                    "courseNum": "CSC110",
+                    "preferenceNum": 5,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG499",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                }
+            ],
+            "displayName": "Daniela Damian",
+            "fallTermCourses": 0,
+            "springTermCourses": 0,
+            "summerTermCourses": 0
+
+
+        }
+    ]
+}

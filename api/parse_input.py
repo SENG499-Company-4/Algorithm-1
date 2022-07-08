@@ -1,38 +1,62 @@
-from models import Course, Input, Schedule
-
+from api.models import Course, Input, Schedule
+import pandas as pd
 
 def courses_to_schedule(input: Input) -> Schedule:
+    """
+    Extract courses from schedule object
+    """
     return input.coursesToSchedule
 
 def fall_courses(schedule: Schedule) -> list[Course]:
-    return schedule.fallTermCourses
+    """
+    Extract fall courses
+    """
+    courses = schedule.fallTermCourses
+    return fall_term_parse_prof_and_prefs(courses)
 
 def spring_courses(schedule: Schedule) -> list[Course]:
-    return schedule.springTermCourses
+    """
+    Extract spring courses
+    """
+    courses = schedule.springTermCourses
+    return spring_term_parse_prof_and_prefs(courses)
 
 def summer_courses(schedule: Schedule) -> list[Course]:
-    return schedule.summerTermCourses
+    """
+    Extract summer courses
+    """
+    courses = schedule.summerTermCourses
+    return summer_term_parse_prof_and_prefs(courses)
 
-"""
-Each list of courses will have preferences 
-"""
 
-def fall_term_courses_to_pref_matrix(fall_courses: list[Course]):
+def fall_term_parse_prof_and_prefs(fall_courses: list[Course]):
     """
     Returns a preference matrix for fall term courses
     """
-    prof_preferences = [course.prof.prefs for course in fall_courses]
+    profs = [course.prof for course in fall_courses]
+    li = []
+    for item in profs:
+       li.append((item.displayName, item.prefs))
+    return li
+    
       
 
-def spring_term_courses_to_pref_matrix(spring_courses: list[Course]):
+def spring_term_parse_prof_and_prefs(spring_courses: list[Course]):
     """
     Returns a preference matrix for spring term courses
     """
-    prof_preferences = [course.prof.prefs for course in spring_courses]
+    profs = [course.prof for course in spring_courses]
+    li = []
+    for item in profs:
+       li.append((item.displayName, item.prefs))
+    return li
 
-
-def summer_term_courses_to_pref_matrix(summer_courses: list[Course]):
+def summer_term_parse_prof_and_prefs(summer_courses: list[Course]):
     """
     Returns a preference matrix for summer term courses
     """    
-    prof_preferences = [course.prof.prefs for course in summer_courses]
+    profs = [course.prof for course in summer_courses]
+    li = []
+    for item in profs:
+       li.append((item.displayName, item.prefs))
+    return li
