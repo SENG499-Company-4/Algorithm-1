@@ -1,6 +1,8 @@
 from .models import *
 import numpy as np
 import math
+from prototype.random_search import random_search
+from .formatOutput import matrixToSchedule
 
 #Max capacity for splitting sections
 MAX_SECTION_CAPACITY = 200
@@ -14,23 +16,33 @@ def parseInput(input: ScheduleConstraints):
 
   if len(input.coursesToSchedule.fallCourses) != 0:
     term = 'FALL'
-    courses = parseCourses(input.coursesToSchedule.fallCourses)
+    courseInput = input.coursesToSchedule.fallCourses
 
   elif len(input.coursesToSchedule.springCourses) != 0:
     term = 'SPRING'
-    courses = parseCourses(input.coursesToSchedule.springCourses)
+    courseInput = input.coursesToSchedule.springCourses
 
   elif len(input.coursesToSchedule.summerCourses) != 0:
     term = 'SUMMER'
-    courses = parseCourses(input.coursesToSchedule.summerCourses)
+    courseInput = input.coursesToSchedule.summerCourses
+
+  courses = parseCourses(courseInput) #course IDs
+  courseMatcher = matchCourseID(courseInput) #courseID to Course object 
   
   profs = parseProfs(input.professors) #professor names
+  profMatcher = matchProfName(input.professors) #professor name to Professor object
+
   prefs = parseProfPrefs(input.professors) #dictionary of prof preferences
   avails = parseProfAvailability(input.professors, term) # Array of max courses to schedule
   matrix = profPrefMatrix(profs, prefs, courses) #Professor preference matrix for courses
 
   testPrint(profs, prefs, courses, avails, matrix)
-  #output = algorithm(matrix, avails)
+  output = random_search(matrix, avails)
+
+  schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
+
+  return schedule
+
 
 
 def parseProfs(profs: list[Professor]):
@@ -72,6 +84,7 @@ def parseCourses(courses: list[Course]):
     #Split Sections based on Capacity if not set
     if course.numSections == 0:
       course.numSections = math.ceil(course.courseCapacity / MAX_SECTION_CAPACITY)
+      course.courseCapacity = math.ceil(course.courseCapacity / course.numSections) #Split capacity evenly amongst sections
 
     courseID = course.subject + course.courseNumber
 
@@ -79,6 +92,28 @@ def parseCourses(courses: list[Course]):
       courseList.append(courseID)
 
   return courseList
+
+def matchCourseID(courses: list[Course]):
+  """
+  Returns dictionary for parsing courseID to other attributes
+  """
+  courseDict = {}
+
+  for course in courses:
+    courseID = course.subject+course.courseNumber
+    courseDict[courseID] = course
+
+  return courseDict
+
+def matchProfName(profs: list[Professor]):
+  """
+  Returns dictionary for matching professor name to professor object
+  """
+  profDict = {}
+  for prof in profs:
+    profDict[prof.displayName] = prof
+
+  return profDict
 
 def parseProfAvailability(profs: list[Professor], term: str):
   """
