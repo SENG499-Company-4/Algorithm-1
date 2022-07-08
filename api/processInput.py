@@ -1,17 +1,17 @@
 from .models import *
 import numpy as np
 
-def parseInput(input: Input):
+def parseInput(input: ScheduleConstraints):
 
-  if len(input.coursesToSchedule.fallTermCourses) != 0:
+  if len(input.coursesToSchedule.fallCourses) != 0:
     term == 'FALL'
-    courseList = parseCourses(input.coursesToSchedule.fallTermCourses)
-  elif len(input.coursesToSchedule.springTermCourses) != 0:
+    courses = parseCourses(input.coursesToSchedule.fallCourses)
+  elif len(input.coursesToSchedule.springCourses) != 0:
     term = 'SPRING'
-    courses = parseCourses(input.coursesToSchedule.springTermCourses)
-  elif len(input.coursesToSchedule.summerTermCourses) != 0:
+    courses = parseCourses(input.coursesToSchedule.springCourses)
+  elif len(input.coursesToSchedule.summerCourses) != 0:
     term = 'SUMMER'
-    courses = parseCourses(input.coursesToSchedule.summerTermCourses)
+    courses = parseCourses(input.coursesToSchedule.summerCourses)
   
   profs = parseProfs(input.professors)
   prefs = parseProfPrefs(input.professors)
