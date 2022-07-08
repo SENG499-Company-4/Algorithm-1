@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from . import dummy
 from .models import Schedule, ScheduleConstraints
+from .processInput import parseInput
 
 app = FastAPI()
 
@@ -11,6 +12,8 @@ app = FastAPI()
 @app.post('/schedule', response_model=Schedule)
 def post_schedule(body: ScheduleConstraints) -> Schedule:
     """Generates a schedule"""
+
+    #parseInput(body)
 
     return dummy.rand_schedule()
 
