@@ -1,10 +1,11 @@
+from typing import List
 import numpy as np
 import sys
+from sudoku_schedule import ScheduledClass
 
-NUM_TRIES = 1000
 COURSE_PER_PROF = 3
 COOLDOWN_RATE = 28
-BAD_ATTEMPT_MAX = 900
+BAD_ATTEMPT_MAX = 90
 
 ECE_matrix = [
     [ 0, 0, 0, 0, 0, 0, 195, 195, 0, 100, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20], 
@@ -76,7 +77,7 @@ CSC_matrix = [
 
 np.set_printoptions(threshold=sys.maxsize, linewidth=400)
 
-def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
+def random_search_preference(pref_matrix, teaching_credits = None, iterations = 1000, score_type = "min_bad_pref"):
     matrix = np.array(pref_matrix) #The original preference matrix as a numpy array.
     best_matrix = [] #Save best output matrix here.
     best_score = 0 #Score heuristic gets computed differently depending on score type.
@@ -84,11 +85,16 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
     print("Given matrix:\n", matrix)
     n = 0
     total_thrown_out = 0 #Total invalid schedules discarded. In real scenarios this often ends up very high.
+    have_enough_availability = True
 
     if teaching_credits is None:
         teaching_credits = np.ones(matrix.shape[0]) * 3
+    
+    have_enough_availability = np.sum(teaching_credits) >= matrix.shape[1]
+    if have_enough_availability == False:
+        print("Did not have enough availability!")
 
-    while n < NUM_TRIES:
+    while n < iterations:
         output_matrix = np.zeros(matrix.shape)
         bad_attempts = 0
         profs_cooldown = []
@@ -129,7 +135,7 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
         if n % 100 == 0:
             print("Completed this many tries: ", n)
         
-        if bad_attempts >= BAD_ATTEMPT_MAX:
+        if bad_attempts >= BAD_ATTEMPT_MAX and have_enough_availability:
             total_thrown_out += 1
             continue
 
@@ -161,13 +167,32 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
         if score < worst_score:
             worst_score = score
 
+    print("Bad attempts: ", total_thrown_out)
+
+    if isinstance(best_matrix, list):
+        print("No valid schedule was found. Check your input!")
+        print(output_matrix)
+        return np.zeros(matrix.shape)
+
     print("Best Matrix was \n", best_matrix.astype(int))
     print("With best score of: ", best_score)
     print("Worst score seen was:", worst_score)
     print("Visualizing original preferences \n", (matrix * best_matrix).astype(int))
-    print("Bad attempts: ", total_thrown_out)
+    
 
     return best_matrix
+
+SLOTS_PER_DAY = 13
+
+def random_search_schedule(courses: List[ScheduledClass], course_assignments):
+    matrix = np.zeros((len(courses), 13 * 5))
+    not_at_same_time = course_assignments
+    courses_scheduled = 0
+    while courses_scheduled < matrix.shape[0]:
+        curr_course = np.random.choice(matrix.shape[0])
+        
+
+
         
 
 def main():
@@ -177,9 +202,17 @@ def main():
     P = np.array([0,1,2,3,4,5,6])
     prefs = np.random.randint(0, P.size, (teachers, courses), dtype=np.int64)
     prefs = np.vectorize(mapping_dict.get)(prefs)
+
+
+    prefs_bad = [
+        [20, 40, 40],
+        [0, 78, 20]
+    ]
+
+    relief_bad = [1, 2]
     
     hardcoded_relief = np.array([3, 3, 2, 2, 3, 2, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 2, 2, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3])
-    random_search(CSC_matrix, score_type="min_bad_pref")
+    random_search_preference(prefs_bad, teaching_credits=relief_bad, iterations=10, score_type="min_bad_pref")
     return 0
 
 
