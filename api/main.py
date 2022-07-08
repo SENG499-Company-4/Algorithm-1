@@ -13,9 +13,9 @@ app = FastAPI()
 def post_schedule(body: ScheduleConstraints) -> Schedule:
     """Generates a schedule"""
 
-    #parseInput(body)
+    parseInput(body)
 
-    return dummy.rand_schedule()
+    return None
 
 
 @app.post("/check_schedule")

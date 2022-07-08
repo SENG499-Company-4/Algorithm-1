@@ -80,7 +80,7 @@ def parseCourses(courses: list[Course]):
 
   return courseList
 
-def parseProfAvailability(profs: list[Professor], term):
+def parseProfAvailability(profs: list[Professor], term: str):
   """
   Creates an array holding maximum courses a prof can be scheduled a given term
   Indices correspond to professor array
@@ -103,14 +103,15 @@ def parseProfAvailability(profs: list[Professor], term):
   return nCourses
 
 
-def profPrefMatrix(profs, prefs, courses):
+def profPrefMatrix(profs: list[str], prefs: dict, courses = list[str]):
   """
   Creates a Professor Preference Matrix 
         Arguments:
-            courses - List of C courses to schedule 
             profs - List of P professors to schedule
             prefs - Preferences of profs for courses
                 dictionary format prefs[prof_display_name][course_num]
+            courses - List of C course sections to schedule e.g "CSC116"
+                      Duplicates correspond to multiple sections
 
         return: P x C matrix with professor preferences ranging from [0,6]
   """
