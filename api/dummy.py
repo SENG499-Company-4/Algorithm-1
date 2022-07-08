@@ -43,7 +43,7 @@ def rand_assignment():
         startDate=rand_date(),
         endDate=rand_date(),
         beginTime=rand_time(),
-        endtime=rand_time(),
+        endTime=rand_time(),
         hoursWeek=6*random(),
         sunday=bool(randint(0, 1)),
         monday=bool(randint(0, 1)),
