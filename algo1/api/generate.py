@@ -6,7 +6,7 @@ import math
 
 from .models import Professor, Course, ScheduleConstraints
 from .output import matrixToSchedule
-from prototype.random_search import random_search
+from ..prototype.random_search import random_search
 
 #Max capacity for splitting sections
 MAX_SECTION_CAPACITY = 200
