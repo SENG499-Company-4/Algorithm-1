@@ -17,7 +17,7 @@ def main():
     teachers = 29
     dims = (courses, times, teachers)
 
-    """
+    #"""
     with open("prefs.csv", "r") as fprefs:
         prefs = np.loadtxt("prefs.csv", delimiter=",", dtype=np.int16)
 
@@ -25,11 +25,11 @@ def main():
     for i in range(rows):
         for j in range(cols):
             prefs[i, j] = val_map[prefs[i, j]]
-    """
+    #"""
     
-    prefs = np.random.randint(7, size=(teachers, courses), dtype=np.uint8)
+    #prefs = np.random.randint(7, size=(teachers, courses), dtype=np.uint8)
     avails = np.array([3 for i in range(teachers)], dtype=np.uint8)
-    max_iter = 100000
+    max_iter = 10
     P = [0,1,2,3,4,5,6]
     p_mean = 3
 
