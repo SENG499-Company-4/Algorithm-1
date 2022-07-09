@@ -1,9 +1,7 @@
 """Algorithm 1 API Application"""
 
-from email.quoprimime import body_check
 from fastapi import FastAPI
 
-from . import dummy
 from .models import Schedule, ScheduleConstraints
 from .generate import generateSchedule
 
