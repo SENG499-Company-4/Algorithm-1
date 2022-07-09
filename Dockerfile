@@ -8,8 +8,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 COPY ./.env /code/
-COPY ./api /code/api
-COPY ./prototype /code/prototype
+COPY ./algo1 /code/algo1
 COPY ./tp.xlsx /code
 
-CMD ["python", "-m", "api.run"]
+CMD ["python", "-m", "algo1.api.run"]
