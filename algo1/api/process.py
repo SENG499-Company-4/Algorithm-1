@@ -148,17 +148,17 @@ class Process:
 
 if __name__ == "__main__":
     #Testing Output...
-    print("TEACHERS")
+    logger.debug("TEACHERS")
     t_list = Process.professor_list()
-    print(t_list)
-    print(len(t_list))
+    logger.debug(t_list)
+    logger.debug(len(t_list))
 
-    print("\nCOURSES")
+    logger.debug("\nCOURSES")
     c_list = Process.course_list()
-    print(c_list)
-    print(len(c_list))
+    logger.debug(c_list)
+    logger.debug(len(c_list))
 
     p_list = Process.preference_list()
     matrix = Process.course_prof_matrix()
     for i in range(matrix.shape[0]):
-        print(matrix[i])
+        logger.debug(matrix[i])

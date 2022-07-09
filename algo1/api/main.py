@@ -1,5 +1,7 @@
 """Algorithm 1 API Application"""
 
+import logging
+
 from fastapi import FastAPI
 
 from .models import Schedule, ScheduleConstraints

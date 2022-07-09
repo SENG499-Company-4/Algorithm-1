@@ -1,9 +1,12 @@
 """Algorithm 1 Generation Output"""
 
 from calendar import c
+import logging
 from .models import Schedule, Course, Professor, Assignment
 from .dummy import rand_assignment
 import numpy as np
+
+logger = logging.getLogger(__name__)
 
 
 def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term): 
@@ -39,7 +42,7 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
 
     course_obj = createCourse(course, prof, rand_assignment()) #TODO: Actual Assignments for courses
     scheduled_courses.append(course_obj)
-    print(f"Prof {course_obj.prof.displayName} is teaching {course_obj.subject} {course_obj.courseNumber} {course_obj.sequenceNumber}")
+    logger.debug(f"Prof {course_obj.prof.displayName} is teaching {course_obj.subject} {course_obj.courseNumber} {course_obj.sequenceNumber}")
 
   #Return schedule for given term, other terms are empty
   fall = []

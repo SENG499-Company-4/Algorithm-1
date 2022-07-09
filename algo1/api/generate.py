@@ -1,5 +1,6 @@
 """ Algorithm 1 Schedule Generation"""
 
+import logging
 import numpy as np
 import math
 
@@ -9,6 +10,9 @@ from prototype.random_search import random_search
 
 #Max capacity for splitting sections
 MAX_SECTION_CAPACITY = 200
+
+logger = logging.getLogger(__name__)
+
 
 def generateSchedule(input: ScheduleConstraints):
   """
@@ -177,11 +181,11 @@ def testPrint(profs, prefs, courses, avails, matrix):
   """
   For debugging purposes >:) 
   """
-  print("PARSING INPUT")
-  print(f"PROFS: {profs}")
-  print(f"PREFS: {prefs}")
-  print(f"AVAILABILITY: {avails}")
-  print(f"COURSES: {courses}")
-  print("MATRIX:")
+  logger.debug("PARSING INPUT")
+  logger.debug(f"PROFS: {profs}")
+  logger.debug(f"PREFS: {prefs}")
+  logger.debug(f"AVAILABILITY: {avails}")
+  logger.debug(f"COURSES: {courses}")
+  logger.debug("MATRIX:")
   for i in range(matrix.shape[0]):
-    print(matrix[i])
+    logger.debug(matrix[i])
