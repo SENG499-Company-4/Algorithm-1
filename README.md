@@ -21,7 +21,21 @@ To make a request via the interactive API docs, click on an endpoint to expand, 
 
 ## Running Locally
 
-It is recommended to run the API server via Docker:
+For dev purposes, it is faster to run with a simple virtual environment:
+
+```
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Then to run:
+
+```
+python -m algo1.api.run
+```
+
+To test the production environment:
 
 ```
 docker compose up
