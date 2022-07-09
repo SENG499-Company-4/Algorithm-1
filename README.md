@@ -73,3 +73,25 @@ fastapi-codegen -i openapi.json -o temp/
 ```
 
 `main.py` and `models.py` should appear in your `temp/` directory. You can use these as a guide to make sure the API code is adhering to the OpenAPI spec.
+
+## Logging
+
+The loggers are set up to be children of the main application logger: `algo1`. To create a logger for a module:
+
+```
+import logging
+
+logger = logging.getLogger(__name__)
+```
+
+Because everything is a child module of `algo1`, the loggers will all be child loggers of the main `algo1` logger. For example, if you call `logging.getLogger(__name__)` in the `algo1/api/main.py` file, the logger will be named `algo1.api.main` (the same as `__name__`). If `algo.api` logger exists, it will become the parent of `algo.api.main`, and `algo1` will be the parent of `algo1.api`. Otherwise, `algo1` will be the parent of `algo.api.main`. This happens automatically and greatly simplifies logging config and usage.
+
+Now, anywhere you would use a `print` statement, use `logger.critical`, `logger.error`, `logger.warning`, `logger.info`, or `logger.debug` in its place.
+
+The default log level is `DEBUG`. This gives lots of info to work with in these early development stages. If you'd like to lower the log level during development to calm down the terminal, you can override the environment variable when running the API:
+
+```
+LOG_LEVEL=WARNING python -m algo1.api.run
+```
+
+Change `WARNING` to the desired log level.
