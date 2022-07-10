@@ -1,6 +1,5 @@
 import numpy as np
 from matplotlib import pyplot as plt
-import sys
 
 
 MIN_TEACHERS_PER_COURSE = 0
@@ -30,7 +29,7 @@ class RandOpt:
         self.random_search(tensor)
 
     def random_search(self, tensor):
-        card_c, card_ti, card_te = tensor.shape
+        card_c, card_ti, _ = tensor.shape
 
         for course in range(card_c):
             time = np.random.randint(low=0, high=card_ti, size=1)
@@ -128,7 +127,7 @@ class RandOpt:
                     return False
                     
                 if time == 22:
-                    time = 24
+                    time = 25
                     window = 1
                 
                 time += 1
@@ -155,6 +154,8 @@ class RandOpt:
         return True
         
     def proj_2d(self, dim_keys, tensor=None):
+        assert(len(dim_keys) == 2)
+
         if tensor is None:
             tensor = self.tensor
 
