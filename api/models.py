@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 
 
 class Assignment(BaseModel):
-    startDate: str = Field(..., example='Jan 07, 2019')
+    startDate: str = Field(None, example='Jan 07, 2019')
     endDate: str = Field(..., example='Apr 05, 2019')
     beginTime: str = Field(..., example='0830')
     endTime: str = Field(..., example='0930')

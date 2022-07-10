@@ -1,3 +1,4 @@
+from pydantic import Field
 from models import Assignment
 
 Times = {
@@ -51,5 +52,5 @@ Times = {
     47 : Assignment(startData="", endDate="", beginTime="1930", endTime="2020", hoursWeek=3, sunday=False, monday=False, tuesday=True, wednesday=True, thursday=False, friday=True, saturday=False),
     48 : Assignment(startData="", endDate="", beginTime="2000", endTime="2050", hoursWeek=3, sunday=False, monday=False, tuesday=True, wednesday=True, thursday=False, friday=True, saturday=False),
     49 : Assignment(startData="", endDate="", beginTime="2030", endTime="2120", hoursWeek=3, sunday=False, monday=False, tuesday=True, wednesday=True, thursday=False, friday=True, saturday=False),
-    50 : Assignment(startData="", endDate="", beginTime="2100", endTime="2150", hoursWeek=3, sunday=False, monday=False, tuesday=True, wednesday=True, thursday=False, friday=True, saturday=False),
+    50 : Assignment(startData="", endDate="", beginTime="2100", endTime="2150", hoursWeek=3, sunday=False, monday=False, tuesday=True, wednesday=True, thursday=False, friday=True, saturday=False)
 }
