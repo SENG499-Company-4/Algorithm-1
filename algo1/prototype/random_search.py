@@ -1,3 +1,4 @@
+import logging
 import numpy as np
 import sys
 
@@ -74,14 +75,18 @@ CSC_matrix = [
 	[ 40, 78, 78, 40, 195, 20, 40, 0, 195, 78, 0, 39, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
+logger = logging.getLogger(__name__)
+
 np.set_printoptions(threshold=sys.maxsize, linewidth=400)
+
 
 def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
     matrix = np.array(pref_matrix) #The original preference matrix as a numpy array.
     best_matrix = [] #Save best output matrix here.
     best_score = 0 #Score heuristic gets computed differently depending on score type.
     worst_score = 9999
-    print("Given matrix:\n", matrix)
+    logger.debug("Given matrix:")
+    logger.debug(matrix)
     n = 0
     total_thrown_out = 0 #Total invalid schedules discarded. In real scenarios this often ends up very high.
 
@@ -127,7 +132,7 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
 
         n += 1
         if n % 100 == 0:
-            print("Completed this many tries: ", n)
+            logger.debug(f"Completed this many tries: {n}")
         
         if bad_attempts >= BAD_ATTEMPT_MAX:
             total_thrown_out += 1
@@ -135,7 +140,7 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
 
         mula = (matrix * output_matrix).astype(int)
         a = np.sum(mula, axis = 0)
-        #print("Making assertion on this: ", a)
+        #logger.debug(f"Making assertion on this: {a}")
         assert(np.count_nonzero(a > 0) == output_matrix.shape[1])
 
         score = 0
@@ -161,11 +166,13 @@ def random_search(pref_matrix, teaching_credits = None, score_type = "sum"):
         if score < worst_score:
             worst_score = score
 
-    print("Best Matrix was \n", best_matrix.astype(int))
-    print("With best score of: ", best_score)
-    print("Worst score seen was:", worst_score)
-    print("Visualizing original preferences \n", (matrix * best_matrix).astype(int))
-    print("Bad attempts: ", total_thrown_out)
+    logger.debug("Best Matrix was:")
+    logger.debug(best_matrix.astype(int))
+    logger.debug(f"With best score of: {best_score}")
+    logger.debug(f"Worst score seen was:{worst_score}")
+    logger.debug("Visualizing original preferences:")
+    logger.debug((matrix * best_matrix).astype(int))
+    logger.debug(f"Bad attempts: {total_thrown_out}")
 
     return best_matrix
         
