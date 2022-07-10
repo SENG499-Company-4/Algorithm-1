@@ -8,8 +8,8 @@ MAX_TEACHERS_PER_COURSE = 1
 
 class RandOpt:
     def __init__(self, dims, prefs, avails, max_iter, P, p_tgt):
-        self.dtype = np.uint8
         assert("courses" in dims and "times" in dims and "teachers" in dims)
+        self.dtype = np.uint8
         self.dims = dims
         self.dim_idx_map = {"courses":0, "times":1, "teachers":2}
         self.shape = (dims["courses"], dims["times"], dims["teachers"])
@@ -105,10 +105,10 @@ class RandOpt:
         if tensor is None:
             tensor = self.tensor
 
-        no_imbalanced_load = self.check_course_load(tensor)
+        no_imbalanced_loads = self.check_course_load(tensor)
         no_time_conflicts = self.check_time_conflicts(tensor)
         
-        if no_imbalanced_load and no_time_conflicts:
+        if no_imbalanced_loads and no_time_conflicts:
             return True
 
         return False
