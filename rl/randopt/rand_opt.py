@@ -9,6 +9,7 @@ MAX_TEACHERS_PER_COURSE = 1
 class RandOpt:
     def __init__(self, dims, prefs, avails, max_iter, P, p_tgt):
         self.dtype = np.uint8
+        assert("courses" in dims and "times" in dims and "teachers" in dims)
         self.dims = dims
         self.dim_idx_map = {"courses":0, "times":1, "teachers":2}
         self.shape = (dims["courses"], dims["times"], dims["teachers"])
