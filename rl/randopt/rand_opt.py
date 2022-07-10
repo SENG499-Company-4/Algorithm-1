@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 import sys
-np.set_printoptions(threshold=sys.maxsize)
+
 
 MIN_TEACHERS_PER_COURSE = 0
 MAX_TEACHERS_PER_COURSE = 1
