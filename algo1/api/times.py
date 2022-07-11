@@ -1,4 +1,3 @@
-from pydantic import Field
 from .models import Assignment
 
 Times = {
