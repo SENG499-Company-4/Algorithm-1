@@ -120,3 +120,5 @@ from fastapi import HTTPException
 if no_good:
     raise HTTPException(status_code=400, detail="Ain't no good")
 ```
+
+[Here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) is a complete list of response codes.
