@@ -29,7 +29,10 @@ class RandOpt:
         tensor[:, :, :] = 0
         self.random_search(tensor)
 
-    def random_search(self, tensor):
+    def random_search(self, tensor=None):
+        if tensor is None:
+            tensor = self.tensor
+        
         card_c, card_ti, _ = tensor.shape
 
         for course in range(card_c):
@@ -69,6 +72,7 @@ class RandOpt:
             tensor = self.tensor
 
         courses, times, teachers = tensor.nonzero()
+        assert(courses.size == times.size == teachers.size)
         sparse_tensor = {(courses[i], times[i], teachers[i]) : self.prefs[teachers[i], courses[i]] \
                             for i in range(courses.size)}
         return sparse_tensor
@@ -105,7 +109,7 @@ class RandOpt:
         if tensor is None:
             tensor = self.tensor
 
-        no_imbalanced_loads = self.check_course_load(tensor)
+        no_imbalanced_loads = self.check_course_loads(tensor)
         no_time_conflicts = self.check_time_conflicts(tensor)
         
         if no_imbalanced_loads and no_time_conflicts:
@@ -114,6 +118,9 @@ class RandOpt:
         return False
 
     def check_time_conflicts(self, tensor=None):
+        if tensor is None:
+            tensor = self.tensor
+
         proj = self.proj_2d(("teachers", "times"), tensor)
         teachers, times = proj.shape
 
@@ -135,7 +142,7 @@ class RandOpt:
 
         return True
 
-    def check_course_load(self, tensor=None):
+    def check_course_loads(self, tensor=None):
         if tensor is None:
             tensor = self.tensor
 
