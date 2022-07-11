@@ -49,14 +49,14 @@ def generateSchedule(input: ScheduleConstraints):
   try:
     output = random_search(matrix, avails)
   except Exception as e:
-    logger.error("Failed to generate Schedule")
+    logger.error(f"Failed generating Schedule: {e}")
     return None
 
   #Convert algorithm output to Schedule object
   try:
     schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
   except Exception as e:
-    logger.error("Failed to parse generated schedule")
+    logger.error(f"Failed parsing generated schedule: {e}")
     return None
 
   return schedule
