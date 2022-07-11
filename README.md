@@ -109,3 +109,14 @@ LOG_LEVEL=WARNING python -m algo1.api.run
 ```
 
 Change `WARNING` to the desired log level.
+
+## Exception Responses
+
+To send back an exception when a properly formatted response cannot be generated, raise an `HTTPException` with the appropriate code and detail describing why the exception is being returned. E.g.:
+
+```py
+from fastapi import HTTPException
+
+if no_good:
+    raise HTTPException(status_code=400, detail="Ain't no good")
+```
