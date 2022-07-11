@@ -3,7 +3,7 @@
 from calendar import c
 import logging
 from .models import Schedule, Course, Professor, Assignment
-from .dummy import rand_assignment
+from .dummy import rand_block
 import numpy as np
 
 logger = logging.getLogger(__name__)
@@ -40,7 +40,9 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
     courseID = courses[course_idx]
     course = courseMatcher[courseID] 
 
-    course_obj = createCourse(course, prof, rand_assignment()) #TODO: Actual Assignments for courses
+    time = rand_block(term) #TODO: Actual Assignments for courses
+
+    course_obj = createCourse(course, prof, time) 
     scheduled_courses.append(course_obj)
     logger.debug(f"Prof {course_obj.prof.displayName} is teaching {course_obj.subject} {course_obj.courseNumber} {course_obj.sequenceNumber}")
 
