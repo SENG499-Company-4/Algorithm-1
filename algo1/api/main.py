@@ -1,9 +1,9 @@
 """Algorithm 1 API Application"""
 
-from email.quoprimime import body_check
-from fastapi import FastAPI
+import logging
 
-from . import dummy
+from fastapi import FastAPI, HTTPException
+
 from .models import Schedule, ScheduleConstraints
 from .generate import generateSchedule
 
@@ -14,7 +14,13 @@ app = FastAPI()
 def post_schedule(body: ScheduleConstraints) -> Schedule:
     """Generates a schedule"""
 
-    return generateSchedule(body)
+    schedule = generateSchedule(body)
+
+    if schedule is None:
+        raise HTTPException(status_code=400, detail="Unable to generate schedule")
+        
+
+    return schedule
 
 
 @app.post("/check_schedule")

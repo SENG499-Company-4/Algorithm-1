@@ -1,14 +1,18 @@
 """ Algorithm 1 Schedule Generation"""
 
+import logging
 import numpy as np
 import math
 
 from .models import Professor, Course, ScheduleConstraints
 from .output import matrixToSchedule
-from prototype.random_search import random_search
+from ..prototype.random_search import random_search
 
 #Max capacity for splitting sections
 MAX_SECTION_CAPACITY = 200
+
+logger = logging.getLogger(__name__)
+
 
 def generateSchedule(input: ScheduleConstraints):
   """
@@ -42,10 +46,18 @@ def generateSchedule(input: ScheduleConstraints):
   testPrint(profs, prefs, courses, avails, matrix)
 
   #Run algorithm on teacher preference matrix
-  output = random_search(matrix, avails)
+  try:
+    output = random_search(matrix, avails)
+  except Exception as e:
+    logger.error("Failed to generate Schedule")
+    return None
 
   #Convert algorithm output to Schedule object
-  schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
+  try:
+    schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
+  except Exception as e:
+    logger.error("Failed to parse generated schedule")
+    return None
 
   return schedule
 
@@ -177,11 +189,11 @@ def testPrint(profs, prefs, courses, avails, matrix):
   """
   For debugging purposes >:) 
   """
-  print("PARSING INPUT")
-  print(f"PROFS: {profs}")
-  print(f"PREFS: {prefs}")
-  print(f"AVAILABILITY: {avails}")
-  print(f"COURSES: {courses}")
-  print("MATRIX:")
+  logger.debug("PARSING INPUT")
+  logger.debug(f"PROFS: {profs}")
+  logger.debug(f"PREFS: {prefs}")
+  logger.debug(f"AVAILABILITY: {avails}")
+  logger.debug(f"COURSES: {courses}")
+  logger.debug("MATRIX:")
   for i in range(matrix.shape[0]):
-    print(matrix[i])
+    logger.debug(matrix[i])
