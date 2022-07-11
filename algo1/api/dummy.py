@@ -2,6 +2,7 @@ from datetime import date
 from random import choice, randint, random
 
 from .models import Assignment, Course, Preference, Professor, Schedule
+from .times import Times
 
 COURSES = (
     ("SENG", "499", "Design Project II"),
@@ -57,7 +58,21 @@ def rand_assignment():
         friday=bool(randint(0, 1)),
         saturday=bool(randint(0, 1)))
 
+def rand_block(term = "FALL"):
+    nBlocks = len(Times) 
+    assignment = Times[randint(0, nBlocks - 1)]
+    if term == "FALL":
+        assignment.startDate = date(2022, 9, 5).strftime("%b %d, %Y")
+        assignment.endDate = date(2022, 12, 5).strftime("%b %d, %Y")
+    elif term == "SPRING":
+        assignment.startDate = date(2023, 1, 9).strftime("%b %d, %Y")
+        assignment.endDate = date(2023, 4, 6).strftime("%b %d, %Y")
+    elif term == "SUMMER" :
+        assignment.startDate = date(2023, 5, 3).strftime("%b %d, %Y")
+        assignment.endDate = date(2023, 8, 28).strftime("%b %d, %Y")
 
+    return assignment
+    
 def rand_date():
     return date(randint(2010, 2022), randint(1, 12), randint(1, 28)).strftime("%b %d, %Y")
 
