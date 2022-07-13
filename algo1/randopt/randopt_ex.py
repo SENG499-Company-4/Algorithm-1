@@ -1,7 +1,6 @@
 import numpy as np
 import multiprocessing as mp
 import time
-from os import getpid
 from rand_opt import RandOpt
 
 
@@ -38,7 +37,7 @@ def main():
     #"""
     
     #prefs = np.random.randint(7, size=(teachers, courses), dtype=np.uint8)
-    avails = np.random.randint(1, 4, size=(teachers,), dtype=np.uint8)
+    avails = [3 for i in range(teachers)] #np.random.randint(1, 4, size=(teachers,), dtype=np.uint8)
     max_iter = 1500
     P = np.arange(7, dtype=np.uint8)
     p_tgt = 3
@@ -49,7 +48,7 @@ def main():
         ro_type = type(RandOpt(dims, prefs, avails, max_iter))
         ret_types = []
         i = 0
-        max_runtime = 600
+        max_runtime = 180
         start_time = time.time()
         while ro_type not in ret_types and (time.time() - start_time) < max_runtime:
             ro_obs = [RandOpt(dims, prefs, avails, max_iter) for i in range(num_workers)]
