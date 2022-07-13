@@ -47,14 +47,12 @@ def main():
     with mp.get_context("spawn").Pool() as pool:
         ro_type = type(RandOpt(dims, prefs, avails, max_iter))
         ret_types = []
-        i = 0
         max_runtime = 600
         start_time = time.time()
         while ro_type not in ret_types and (time.time() - start_time) < max_runtime:
             ro_obs = [RandOpt(dims, prefs, avails, max_iter) for i in range(num_workers)]
             res = pool.map(async_random_search, ro_obs)
             ret_types = [type(elem) for elem in res]
-            i+=1
         
         valid_schedules = [schd for schd in res if isinstance(schd, ro_type)]
         
