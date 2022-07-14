@@ -59,7 +59,7 @@ def generateSchedule(input: ScheduleConstraints):
     card_c, card_ti, card_te = len(courses), len(Times.items()), len(avails)
     dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
     max_iter = 1500
-    
+    ro = RandOpt(dims, matrix, avails)
     num_workers = 20
 
     mp.set_start_method("spawn")
