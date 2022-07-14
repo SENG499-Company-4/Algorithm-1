@@ -81,6 +81,8 @@ def generateSchedule(input: ScheduleConstraints):
     while (time.time() - start_time) < max_runtime:
       ro = RandOpt(dims, matrix, avails)
       ro.solve()
+      if ro.is_valid_schedule():
+        break
 
     output = ro.sparse()
 
