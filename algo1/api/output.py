@@ -5,9 +5,49 @@ import logging
 from .models import Schedule, Course, Professor, Assignment
 from .dummy import rand_block
 import numpy as np
+from .times import Times
 
 logger = logging.getLogger(__name__)
 
+
+def tensorToSchedule(tensor, profs, courses, courseMatcher, profMatcher, term):
+  # tensor = {(course_i, time_j, teacher_k) : pref}
+
+  scheduled_courses = []
+
+  for course_idx, time_idx, prof_idx in tensor:
+    #Corresponding professor object
+    profID = profs[prof_idx]
+    prof = profMatcher[profID] 
+
+    #Get corresponding course object
+    courseID = courses[course_idx]
+    course = courseMatcher[courseID] 
+
+    time = Times[time_idx] #TODO: Actual Assignments for courses
+
+    course_obj = createCourse(course, prof, time) 
+    scheduled_courses.append(course_obj)
+    logger.debug(f"Prof {course_obj.prof.displayName} is teaching {course_obj.subject} {course_obj.courseNumber} {course_obj.sequenceNumber}")
+
+  #Return schedule for given term, other terms are empty
+  fall = []
+  summer = []
+  spring = []
+
+  if term == 'FALL':
+    fall = scheduled_courses
+  elif term == "SPRING":
+    spring = scheduled_courses
+  elif term == "SUMMER":
+    summer = scheduled_courses
+
+  return Schedule(
+    fallCourses=fall,
+    springCourses=spring,
+    summerCourses=summer
+  )
+    
 
 def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term): 
   """
