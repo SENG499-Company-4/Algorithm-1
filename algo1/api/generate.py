@@ -60,7 +60,6 @@ def generateSchedule(input: ScheduleConstraints):
     dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
     max_iter = 1500
     
-    """
     num_workers = 20
 
     mp.set_start_method("spawn")
@@ -75,7 +74,8 @@ def generateSchedule(input: ScheduleConstraints):
             ret_types = [type(elem) for elem in res]
         
         valid_schedules = [schd for schd in res if isinstance(schd, ro_type)]
-    
+        output = valid_schedules[0].sparse()
+    """
     max_runtime = 600
     start_time = time.time()
     while (time.time() - start_time) < max_runtime:
@@ -84,10 +84,11 @@ def generateSchedule(input: ScheduleConstraints):
       if ro.is_valid_schedule():
         break
     """
+    """
     ro = RandOpt(dims, matrix, avails)
     ro.solve()
     output = ro.sparse()
-
+    """
 
   except Exception as e:
     logger.error(f"Failed generating Schedule: {e}")
