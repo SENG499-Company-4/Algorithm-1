@@ -75,7 +75,7 @@ def generateSchedule(input: ScheduleConstraints):
             ret_types = [type(elem) for elem in res]
         
         valid_schedules = [schd for schd in res if isinstance(schd, ro_type)]
-    """
+    
     max_runtime = 600
     start_time = time.time()
     while (time.time() - start_time) < max_runtime:
@@ -83,7 +83,9 @@ def generateSchedule(input: ScheduleConstraints):
       ro.solve()
       if ro.is_valid_schedule():
         break
-
+    """
+    ro = RandOpt(dims, matrix, avails)
+    ro.solve()
     output = ro.sparse()
 
 
