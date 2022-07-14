@@ -38,7 +38,7 @@ class RandOpt:
 
         for course in range(card_c):
             time = np.random.randint(low=0, high=card_ti, size=1)
-            ideal_tc_matches = np.where(self.prefs[:, course] > self.p_tgt)[0]
+            ideal_tc_matches = np.where(self.prefs[:, course] >= self.p_tgt)[0]
             if ideal_tc_matches.size > 0:
                 teacher = np.random.choice(ideal_tc_matches, size=1)
                 tensor[course, time, teacher] = 1
