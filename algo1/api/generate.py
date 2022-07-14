@@ -6,12 +6,10 @@ import math
 import time
 import multiprocessing as mp
 
-from rl.randopt.rand_opt import RandOpt
-
 from .times import Times
 from .models import Professor, Course, ScheduleConstraints
 from .output import matrixToSchedule, tensorToSchedule
-from ..randopt..rand_opt import RandOpt
+from ..randopt.rand_opt import RandOpt
 
 #Max capacity for splitting sections
 MAX_SECTION_CAPACITY = 200
@@ -60,18 +58,18 @@ def generateSchedule(input: ScheduleConstraints):
   try:
     card_c, card_ti, card_te = len(courses), len(Times.items()), len(avails)
     dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
-    ro = RandOpt(dims, prefs, avails)
+    ro = RandOpt(dims, matrix, avails)
     max_iter = 1500
     num_workers = 20
 
     mp.set_start_method("spawn")
     with mp.get_context("spawn").Pool() as pool:
-        ro_type = type(RandOpt(dims, prefs, avails, max_iter))
+        ro_type = type(ro)
         ret_types = []
         max_runtime = 600
         start_time = time.time()
         while ro_type not in ret_types and (time.time() - start_time) < max_runtime:
-            ro_obs = [RandOpt(dims, prefs, avails, max_iter) for i in range(num_workers)]
+            ro_obs = [RandOpt(dims, matrix, avails, max_iter) for i in range(num_workers)]
             res = pool.map(async_random_search, ro_obs)
             ret_types = [type(elem) for elem in res]
         
