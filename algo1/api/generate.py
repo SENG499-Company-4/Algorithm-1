@@ -58,8 +58,9 @@ def generateSchedule(input: ScheduleConstraints):
   try:
     card_c, card_ti, card_te = len(courses), len(Times.items()), len(avails)
     dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
-    ro = RandOpt(dims, matrix, avails)
     max_iter = 1500
+    
+    """
     num_workers = 20
 
     mp.set_start_method("spawn")
@@ -74,8 +75,14 @@ def generateSchedule(input: ScheduleConstraints):
             ret_types = [type(elem) for elem in res]
         
         valid_schedules = [schd for schd in res if isinstance(schd, ro_type)]
+    """
+    max_runtime = 600
+    start_time = time.time()
+    while (time.time() - start_time) < max_runtime:
+      ro = RandOpt(dims, matrix, avails)
+      ro.solve()
 
-        output = valid_schedules[0].sparse()
+    output = ro.sparse()
 
 
   except Exception as e:
