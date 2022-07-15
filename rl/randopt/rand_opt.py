@@ -35,11 +35,30 @@ class RandOpt:
         
         card_c, card_ti, _ = tensor.shape
 
+        teachers_taken = []
+        teach_at_least_one = False
+
         for course in range(card_c):
             time = np.random.randint(low=0, high=card_ti, size=1)
             ideal_tc_matches = np.where(self.prefs[:, course] > self.p_tgt)[0]
             if ideal_tc_matches.size > 0:
-                teacher = np.random.choice(ideal_tc_matches, size=1)
+                #print(teachers_taken)
+                #print(ideal_tc_matches)
+                #print()
+                set_diff = np.setdiff1d(ideal_tc_matches, np.asarray(teachers_taken, dtype=int))
+
+                if len(set_diff) == 0:
+                    continue
+                else:
+                    teacher = np.random.choice(set_diff)
+                
+                if teach_at_least_one == False:
+                    teachers_taken.append(teacher)
+
+                if len(teachers_taken) == self.prefs.shape[0]:
+                    teachers_taken.clear()
+                    teach_at_least_one = True
+
                 tensor[course, time, teacher] = 1
 
     def set_sufficient_reward(self):
