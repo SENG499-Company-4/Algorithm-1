@@ -58,24 +58,8 @@ def generateSchedule(input: ScheduleConstraints):
   try:
     card_c, card_ti, card_te = len(courses), len(Times.items()), len(avails)
     dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
-    max_iter = 1500
     ro = RandOpt(dims, matrix, avails)
-    num_workers = 20
 
-    mp.set_start_method("spawn")
-    with mp.get_context("spawn").Pool() as pool:
-        ro_type = type(ro)
-        ret_types = []
-        max_runtime = 600
-        start_time = time.time()
-        while ro_type not in ret_types and (time.time() - start_time) < max_runtime:
-            ro_obs = [RandOpt(dims, matrix, avails, max_iter) for i in range(num_workers)]
-            res = pool.map(async_random_search, ro_obs)
-            ret_types = [type(elem) for elem in res]
-        
-        valid_schedules = [schd for schd in res if isinstance(schd, ro_type)]
-        output = valid_schedules[0].sparse()
-    """
     max_runtime = 600
     start_time = time.time()
     while (time.time() - start_time) < max_runtime:
@@ -83,12 +67,8 @@ def generateSchedule(input: ScheduleConstraints):
       ro.solve()
       if ro.is_valid_schedule():
         break
-    """
-    """
-    ro = RandOpt(dims, matrix, avails)
-    ro.solve()
+
     output = ro.sparse()
-    """
 
   except Exception as e:
     logger.error(f"Failed generating Schedule: {e}")

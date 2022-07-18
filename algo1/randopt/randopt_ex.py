@@ -37,7 +37,7 @@ def main():
     #"""
     
     #prefs = np.random.randint(7, size=(teachers, courses), dtype=np.uint8)
-    avails = np.random.randint(1, 4, size=(teachers,), dtype=np.uint8)
+    avails = [3 for i in range(teachers)] #np.random.randint(1, 4, size=(teachers,), dtype=np.uint8)
     max_iter = 1500
     P = np.arange(7, dtype=np.uint8)
     p_tgt = 3
@@ -59,6 +59,8 @@ def main():
         for schd in valid_schedules:
             print(f"connections:\n{schd.sparse()}\nreward: {schd.calc_reward()}\niterations: {schd.iter+1}")
         
+        if len(valid_schedules) > 0:
+            valid_schedules[0].plot()
 
 if __name__ == "__main__":
     main()
