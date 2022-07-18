@@ -16,12 +16,6 @@ MAX_SECTION_CAPACITY = 200
 
 logger = logging.getLogger(__name__)
 
-def async_random_search(ro):
-    ro.solve()
-    if ro.is_valid_schedule(): 
-        return ro
-    return None
-
 
 def generateSchedule(input: ScheduleConstraints):
   """
