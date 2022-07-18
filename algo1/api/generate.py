@@ -72,6 +72,10 @@ def parseCourses(courses: list[Course]):
     #Split Sections based on Capacity if not set
     if course.numSections == 0:
       course.numSections = math.ceil(course.courseCapacity / MAX_SECTION_CAPACITY)
+
+      if course.numSections == 0:
+        course.numSections = 1
+        
       course.courseCapacity = math.ceil(course.courseCapacity / course.numSections) #Split capacity evenly amongst sections
 
     courseID = course.subject + course.courseNumber
