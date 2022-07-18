@@ -56,19 +56,7 @@ def generateSchedule(input: ScheduleConstraints):
 
   #Run algorithm on teacher preference matrix
   try:
-    card_c, card_ti, card_te = len(courses), len(Times.items()), len(avails)
-    dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
-    ro = RandOpt(dims, matrix, avails)
-
-    max_runtime = 600
-    start_time = time.time()
-    while (time.time() - start_time) < max_runtime:
-      ro = RandOpt(dims, matrix, avails)
-      ro.solve()
-      if ro.is_valid_schedule():
-        break
-
-    output = ro.sparse()
+    output = run_random_search(courses, Times, avails, matrix)
 
   except Exception as e:
     logger.error(f"Failed generating Schedule: {e}")
@@ -84,6 +72,20 @@ def generateSchedule(input: ScheduleConstraints):
 
   return schedule
 
+def run_random_search(courses, times, avails, preferences):
+    card_c, card_ti, card_te = len(courses), len(times.items()), len(avails)
+    dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
+    ro = RandOpt(dims, preferences, avails)
+
+    max_runtime = 600
+    start_time = time.time()
+    while (time.time() - start_time) < max_runtime:
+      ro = RandOpt(dims, preferences, avails)
+      ro.solve()
+      if ro.is_valid_schedule():
+        break
+
+    output = ro.sparse()
 
 def parseCourses(courses: list[Course]):
   '''
