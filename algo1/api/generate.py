@@ -79,7 +79,7 @@ def run_random_search(courses, times, avails, preferences):
       if ro.is_valid_schedule():
         break
 
-    output = ro.sparse()
+    return ro.sparse()
 
 def parseCourses(courses: list[Course]):
   '''
