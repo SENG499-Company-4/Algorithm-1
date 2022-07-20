@@ -7,3 +7,4 @@ python-dotenv==0.20.0
 uvicorn==0.17.6
 gym==0.24.1
 pytest==7.1.2
+matplotlib==3.5.2

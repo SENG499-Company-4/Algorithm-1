@@ -3,10 +3,13 @@
 import logging
 import numpy as np
 import math
+import time
+import multiprocessing as mp
 
+from .times import Times
 from .models import Professor, Course, ScheduleConstraints
-from .output import matrixToSchedule
-from ..prototype.random_search import random_search
+from .output import matrixToSchedule, tensorToSchedule
+from ..randopt.rand_opt import RandOpt
 
 #Max capacity for splitting sections
 MAX_SECTION_CAPACITY = 200
@@ -47,20 +50,36 @@ def generateSchedule(input: ScheduleConstraints):
 
   #Run algorithm on teacher preference matrix
   try:
-    output = random_search(matrix, avails)
+    output = run_random_search(courses, Times, avails, matrix)
+
   except Exception as e:
     logger.error(f"Failed generating Schedule: {e}")
     return None
 
   #Convert algorithm output to Schedule object
   try:
-    schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
+    schedule = tensorToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
+    #schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
   except Exception as e:
     logger.error(f"Failed parsing generated schedule: {e}")
     return None
 
   return schedule
 
+def run_random_search(courses, times, avails, preferences):
+    card_c, card_ti, card_te = len(courses), len(times.items()), len(avails)
+    dims = {"courses":card_c, "times":card_ti, "teachers":card_te}
+    ro = RandOpt(dims, preferences, avails)
+
+    max_runtime = 600
+    start_time = time.time()
+    while (time.time() - start_time) < max_runtime:
+      ro = RandOpt(dims, preferences, avails)
+      ro.solve()
+      if ro.is_valid_schedule():
+        break
+
+    return ro.sparse()
 
 def parseCourses(courses: list[Course]):
   '''

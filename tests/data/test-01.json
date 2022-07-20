@@ -1,0 +1,395 @@
+{
+    "hardScheduled": {
+        "fallCourses": [],
+        "springCourses": [],
+        "summerCourses": []
+    },
+    "coursesToSchedule": {
+        "fallCourses": [
+            {
+                "courseNumber": "111",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 400,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "116",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "320",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "225",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "226",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "106",
+                "subject": "CSC",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "360",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "350",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "265",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            },
+            {
+                "courseNumber": "275",
+                "subject": "SENG",
+                "sequenceNumber": "A01",
+                "streamSequence": "1A",
+                "courseTitle": "Fundamentals of Programming with Engineering Applications",
+                "courseCapacity": 600,
+                "numSections": 1
+            }
+        ],
+        "springCourses": [],
+        "summerCourses": []
+    },
+    "professors": [
+        {
+            "preferences": [
+                {
+                    "courseNum": "CSC111",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC116",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC320",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC225",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC226",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC106",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG360",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG350",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG265",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG275",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                }
+            ],
+            "displayName": "Michael, Zastre",
+            "fallTermCourses": 3,
+            "springTermCourses": 1,
+            "summerTermCourses": 1
+        },
+        {
+            "preferences": [
+                {
+                    "courseNum": "CSC111",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC116",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC320",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC225",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC226",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC106",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG360",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG350",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG265",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG275",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                }
+            ],
+            "displayName": "Dude, Guy",
+            "fallTermCourses": 3,
+            "springTermCourses": 1,
+            "summerTermCourses": 1
+        },
+        {
+            "preferences": [
+                {
+                    "courseNum": "CSC111",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC116",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC320",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC225",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC226",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC106",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG360",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG350",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG265",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG275",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                }
+            ],
+            "displayName": "Person, Man",
+            "fallTermCourses": 3,
+            "springTermCourses": 1,
+            "summerTermCourses": 1
+        },
+        {
+            "preferences": [
+                {
+                    "courseNum": "CSC111",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC116",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC320",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC225",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC226",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC106",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG360",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG350",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG265",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG275",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                }
+            ],
+            "displayName": "Thing, Mr.",
+            "fallTermCourses": 3,
+            "springTermCourses": 1,
+            "summerTermCourses": 1
+        },
+        {
+            "preferences": [
+                {
+                    "courseNum": "CSC111",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC116",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC320",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC225",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC226",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "CSC106",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG360",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG350",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG265",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                },
+                {
+                    "courseNum": "SENG275",
+                    "preferenceNum": 6,
+                    "term": "FALL"
+                }
+            ],
+            "displayName": "Bird, Bill",
+            "fallTermCourses": 3,
+            "springTermCourses": 1,
+            "summerTermCourses": 1
+        }
+    ]
+}
