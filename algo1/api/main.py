@@ -2,7 +2,7 @@
 
 import logging
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 
 from .models import Schedule, ScheduleConstraints
 from .generate import generateSchedule
@@ -11,14 +11,15 @@ app = FastAPI()
 
 
 @app.post('/schedule', response_model=Schedule)
-def post_schedule(body: ScheduleConstraints) -> Schedule:
+def post_schedule(body: ScheduleConstraints, response: Response) -> Schedule:
     """Generates a schedule"""
 
-    schedule = generateSchedule(body)
+    schedule, quality = generateSchedule(body)
 
     if schedule is None:
         raise HTTPException(status_code=400, detail="Unable to generate schedule")
-        
+
+    response.headers["schedule-quality"] = quality
 
     return schedule
 

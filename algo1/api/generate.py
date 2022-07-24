@@ -64,7 +64,9 @@ def generateSchedule(input: ScheduleConstraints):
     logger.error(f"Failed parsing generated schedule: {e}")
     return None
 
-  return schedule
+  quality = "good"
+
+  return schedule, quality
 
 def run_random_search(courses, times, avails, preferences):
     card_c, card_ti, card_te = len(courses), len(times.items()), len(avails)
