@@ -10,7 +10,7 @@ from .times import Times
 logger = logging.getLogger(__name__)
 
 
-def tensorToSchedule(tensor, profs, courses, courseMatcher, profMatcher, term):
+def tensorToSemester(tensor, profs, courses, courseMatcher, profMatcher, term):
   # tensor = {(course_i, time_j, teacher_k) : pref}
 
   scheduled_courses = []
@@ -24,29 +24,15 @@ def tensorToSchedule(tensor, profs, courses, courseMatcher, profMatcher, term):
     courseID = courses[course_idx]
     course = courseMatcher[courseID] 
 
-    time = Times[time_idx] #TODO: Actual Assignments for courses
+    time = Times[time_idx] 
 
     course_obj = createCourse(course, prof, time) 
     scheduled_courses.append(course_obj)
     logger.debug(f"Prof {course_obj.prof.displayName} is teaching {course_obj.subject} {course_obj.courseNumber} {course_obj.sequenceNumber}")
 
-  #Return schedule for given term, other terms are empty
-  fall = []
-  summer = []
-  spring = []
+  return scheduled_courses
 
-  if term == 'FALL':
-    fall = scheduled_courses
-  elif term == "SPRING":
-    spring = scheduled_courses
-  elif term == "SUMMER":
-    summer = scheduled_courses
-
-  return Schedule(
-    fallCourses=fall,
-    springCourses=spring,
-    summerCourses=summer
-  )
+  
     
 
 def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term): 

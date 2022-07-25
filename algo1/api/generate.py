@@ -7,8 +7,8 @@ import time
 import multiprocessing as mp
 
 from .times import Times
-from .models import Professor, Course, ScheduleConstraints
-from .output import matrixToSchedule, tensorToSchedule
+from .models import Professor, Course, ScheduleConstraints, Schedule
+from .output import Schedule, tensorToSemester
 from ..randopt.rand_opt import RandOpt
 
 #Max capacity for splitting sections
@@ -23,48 +23,62 @@ def generateSchedule(input: ScheduleConstraints):
   Creates Teacher/Preference Matrix and Professor Availabilities
   Currently only handles one term at a time -- Assumes only one term to schedule will be filled
   """
+  terms = {"FALL": {}, "SPRING": {}, "SUMMER": {}}
 
   if len(input.coursesToSchedule.fallCourses) != 0:
     term = 'FALL'
-    courseInput = input.coursesToSchedule.fallCourses
+    fall_course_input = input.coursesToSchedule.fallCourses
+    terms[term] = fall_course_input
 
-  elif len(input.coursesToSchedule.springCourses) != 0:
+  if len(input.coursesToSchedule.springCourses) != 0:
     term = 'SPRING'
-    courseInput = input.coursesToSchedule.springCourses
+    spring_course_input = input.coursesToSchedule.springCourses
+    terms[term] = spring_course_input
 
-  elif len(input.coursesToSchedule.summerCourses) != 0:
+  if len(input.coursesToSchedule.summerCourses) != 0:
     term = 'SUMMER'
-    courseInput = input.coursesToSchedule.summerCourses
+    summer_course_input = input.coursesToSchedule.summerCourses
+    terms[term] = summer_course_input
 
-  courses = parseCourses(courseInput) #course IDs
-  courseMatcher = matchCourseID(courseInput) #courseID to Course object 
-  
   profs = parseProfs(input.professors) #professor names
   profMatcher = matchProfName(input.professors) #professor name to Professor object
-
   prefs = parseProfPrefs(input.professors) #dictionary of prof preferences
-  avails = parseProfAvailability(input.professors, term) # Array of max courses to schedule
-  matrix = profPrefMatrix(profs, prefs, courses) #Professor preference matrix for courses
 
-  testPrint(profs, prefs, courses, avails, matrix)
+  semester_list = {"FALL": {}, "SPRING": {}, "SUMMER": {}}
 
-  #Run algorithm on teacher preference matrix
-  try:
-    output = run_random_search(courses, Times, avails, matrix)
+  for term, semester in terms.items():
+    avails = parseProfAvailability(input.professors, term) # Array of max courses to schedule 
+    courses = parseCourses(semester) #course IDs
+    courseMatcher = matchCourseID(semester) #courseID to Course object 
+    matrix = profPrefMatrix(profs, prefs, courses) #Professor preference matrix for courses
 
-  except Exception as e:
-    logger.error(f"Failed generating Schedule: {e}")
-    return None
+    testPrint(profs, prefs, courses, avails, matrix)
 
-  #Convert algorithm output to Schedule object
-  try:
-    schedule = tensorToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
-    #schedule = matrixToSchedule(output, profs, courses, courseMatcher, profMatcher, term)
-  except Exception as e:
-    logger.error(f"Failed parsing generated schedule: {e}")
-    return None
+    #Run algorithm on teacher preference matrix
+    try:
+      output = run_random_search(courses, Times, avails, matrix)
 
-  return schedule
+    except Exception as e:
+      logger.error(f"Failed generating Schedule: {e}")
+      return None
+    
+    try:
+      semester = tensorToSemester(output, profs, courses, courseMatcher, profMatcher, term)
+      semester_list[term] = semester
+
+    except Exception as e:
+      logger.error(f"Failed parsing generated schedule: {e}")
+      return None
+
+  fall = semester_list["FALL"]
+  spring = semester_list["SPRING"]
+  summer = semester_list["SUMMER"]
+
+  return Schedule(
+    fallCourses=fall,
+    springCourses=spring,
+    summerCourses=summer,
+  )
 
 def run_random_search(courses, times, avails, preferences):
     card_c, card_ti, card_te = len(courses), len(times.items()), len(avails)
