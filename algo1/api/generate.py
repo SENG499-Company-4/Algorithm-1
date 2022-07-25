@@ -42,13 +42,12 @@ def generateSchedule(input: ScheduleConstraints):
 
   profs = parseProfs(input.professors) #professor names
   profMatcher = matchProfName(input.professors) #professor name to Professor object
-
   prefs = parseProfPrefs(input.professors) #dictionary of prof preferences
-  avails = parseProfAvailability(input.professors, term) # Array of max courses to schedule
 
   semester_list = {"FALL": {}, "SPRING": {}, "SUMMER": {}}
 
-  for term, semester in terms.items(): 
+  for term, semester in terms.items():
+    avails = parseProfAvailability(input.professors, term) # Array of max courses to schedule 
     courses = parseCourses(semester) #course IDs
     courseMatcher = matchCourseID(semester) #courseID to Course object 
     matrix = profPrefMatrix(profs, prefs, courses) #Professor preference matrix for courses
