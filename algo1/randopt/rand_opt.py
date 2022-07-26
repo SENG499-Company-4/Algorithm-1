@@ -105,6 +105,21 @@ class RandOpt:
         hnx.drawing.draw(hg)
         plt.show()
 
+    def plot_2d_projs(self, course_names, time_names, teacher_names, tensor=None):
+        assert(len(course_names) == self.dims["courses"] and len(time_names) == self.dims["times"] and len(teacher_names) == self.dims["teachers"])
+        if tensor is None:
+            tensor = self.tensor
+            
+        courses, times, teachers = tensor.nonzero()
+        courses = [course_names[course] for course in courses]
+        times = [time_names[time] for time in times]
+        teachers = [teacher_names[teacher] for teacher in teachers]
+        fig, axs = plt.subplots(3)
+        axs[0].scatter(teachers, courses)
+        axs[1].scatter(teachers, times)
+        axs[2].scatter(times, courses)
+        plt.show()
+    
     def calc_reward(self, tensor=None):
         if tensor is None:
             tensor = self.tensor
@@ -176,6 +191,7 @@ class RandOpt:
         
     def proj_2d(self, dim_keys, tensor=None):
         assert(len(dim_keys) == 2)
+        assert(dim_keys[0] in self.dims and dim_keys[1] in self.dims)
 
         if tensor is None:
             tensor = self.tensor

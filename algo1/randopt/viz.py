@@ -52,6 +52,7 @@ def schedule(dims, prefs, avails, course_names, time_names, teacher_names):
         valid_schd = valid_schedules[0]
         valid_schd.plot_3d()
         valid_schd.plot_hg(course_names, time_names, teacher_names)
+        valid_schd.plot_2d_projs(course_names, time_names, teacher_names)
 
 def main():
     course_names = [
