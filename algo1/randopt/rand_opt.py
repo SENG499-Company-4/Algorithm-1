@@ -1,4 +1,5 @@
 import numpy as np
+import hypernetx as hnx
 from matplotlib import pyplot as plt
 
 
@@ -78,7 +79,7 @@ class RandOpt:
                             for i in range(courses.size)}
         return sparse_tensor
 
-    def plot(self, tensor=None):
+    def plot_3d(self, tensor=None):
         if tensor is None:
             tensor = self.tensor
 
@@ -91,6 +92,17 @@ class RandOpt:
         ax.set_zlabel('$Teachers$')
         courses, times, teachers = tensor.nonzero()
         ax.scatter(courses, times, teachers, c=teachers, alpha=1)
+        plt.show()
+
+    def plot_hg(self, course_names, time_names, teacher_names, tensor=None): 
+        assert(len(course_names) == self.dims["courses"] and len(time_names) == self.dims["times"] and len(teacher_names) == self.dims["teachers"])
+        if tensor is None:
+            tensor = self.tensor
+
+        sparse_tensor = self.sparse(tensor)
+        hyperedges = {(course_names[course], time_names[time], teacher_names[teacher]) for course, time, teacher in sparse_tensor}
+        hg = hnx.Hypergraph(hyperedges)
+        hnx.drawing.draw(hg)
         plt.show()
 
     def calc_reward(self, tensor=None):
