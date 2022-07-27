@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.post("/schedule", response_model=Schedule)
 def post_schedule(body: ScheduleConstraints) -> Schedule:
-    """Generates a schedule"""
+    """Endpoint for accepting schedule generation requests"""
 
     schedule = generate_schedule(body)
 
