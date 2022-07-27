@@ -1,3 +1,9 @@
+"""Schedule data model definitions
+
+The models in this module are generated off of the API shared company 3/4 API
+spec: https://github.com/SENG499-S22-Company3/shared/blob/main/algorithm1/openapi.json
+"""
+
 from __future__ import annotations
 
 from enum import Enum
