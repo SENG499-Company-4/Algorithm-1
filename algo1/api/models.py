@@ -51,14 +51,16 @@ class Course(BaseModel):
     sequenceNumber: str = Field(..., example='A01')
     streamSequence: str = Field(..., example='1A')
     courseTitle: str = Field(
-        ..., example='Fundamentals of Programming with Engineering Applications'
+        ..., example=(
+            'Fundamentals of Programming with Engineering Applications')
     )
     assignment: Optional[Assignment] = None
     prof: Optional[Professor] = None
     courseCapacity: int = Field(..., example=100)
     numSections: int = Field(
         ...,
-        description='Number of sections a course needs to be split into. Default 1.',
+        description=(
+            'Number of sections a course needs to be split into. Default 1.'),
         example=2,
     )
 

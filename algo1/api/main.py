@@ -1,24 +1,22 @@
 """Algorithm 1 API Application"""
 
-import logging
-
 from fastapi import FastAPI, HTTPException
 
 from .models import Schedule, ScheduleConstraints
-from .generate import generateSchedule
+from .generate import generate_schedule
 
 app = FastAPI()
 
 
-@app.post('/schedule', response_model=Schedule)
+@app.post("/schedule", response_model=Schedule)
 def post_schedule(body: ScheduleConstraints) -> Schedule:
     """Generates a schedule"""
 
-    schedule = generateSchedule(body)
+    schedule = generate_schedule(body)
 
     if schedule is None:
-        raise HTTPException(status_code=400, detail="Unable to generate schedule")
-        
+        raise HTTPException(status_code=400,
+                            detail="Unable to generate schedule")
 
     return schedule
 
