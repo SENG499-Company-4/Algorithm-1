@@ -18,12 +18,13 @@ logger = logging.getLogger(__name__)
 
 
 def generate_schedule(input: ScheduleConstraints):
+    """Parses schedule generation input to prepare for algorithm
+
+    Creates Teacher/Preference matrix and Professor availabilities. Currently
+    only handles one term at a time -- assumes only one term to schedule will
+    be filled.
     """
-    Parses Schedule Generation Input to prepare for Algorithm
-    Creates Teacher/Preference Matrix and Professor Availabilities
-    Currently only handles one term at a time -- Assumes only one term to
-    schedule will be filled
-    """
+
     terms = {"FALL": {}, "SPRING": {}, "SUMMER": {}}
 
     if len(input.coursesToSchedule.fallCourses) != 0:
@@ -80,8 +81,7 @@ def generate_schedule(input: ScheduleConstraints):
     return Schedule(
         fallCourses=fall,
         springCourses=spring,
-        summerCourses=summer,
-    )
+        summerCourses=summer)
 
 
 def run_random_search(courses, times, avails, preferences):
@@ -102,9 +102,11 @@ def run_random_search(courses, times, avails, preferences):
 
 
 def parse_courses(courses: list[Course]):
+    """Parses raw course data
+    
+    Splits into multiple sections based on specified value.
     """
-    List of courses to schedule -- splits into multiple sections
-    """
+    
     courses = []
 
     for course in courses:
@@ -129,9 +131,8 @@ def parse_courses(courses: list[Course]):
 
 
 def match_course_id(courses: list[Course]):
-    """
-    Returns dictionary for parsing course_id to other attributes
-    """
+    """Returns a dictionary for parsing course_id to other attributes"""
+
     courses_by_id = {}
 
     for course in courses:
@@ -142,9 +143,8 @@ def match_course_id(courses: list[Course]):
 
 
 def parse_profs(profs: list[Professor]):
-    """
-    Gets list of profesor display names
-    """
+    """Gets list of professor display names"""
+
     prof_list = []
 
     for prof in profs:
@@ -154,8 +154,8 @@ def parse_profs(profs: list[Professor]):
 
 
 def parse_prof_prefs(profs: list[Professor]):
-    """
-    Dictionary of professor preferences:
+    """Makes a 2D lookup table of professor preferences by professor name and
+    course ID
 
     ```py
     prefs[prof.displayName][courseNum] = preference
@@ -178,10 +178,10 @@ def parse_prof_prefs(profs: list[Professor]):
 
 
 def match_prof_name(profs: list[Professor]):
-    """
-    Returns dictionary for matching professor name to professor object
-    """
+    """Returns a dictionary for matching professor name to professor object"""
+    
     profs_by_name = {}
+
     for prof in profs:
         profs_by_name[prof.displayName] = prof
 
@@ -189,13 +189,15 @@ def match_prof_name(profs: list[Professor]):
 
 
 def parse_prof_availability(profs: list[Professor], term: str):
-    """
-    Creates an array holding maximum courses a prof can be scheduled a given
-    term indices correspond to professor array
-        Arguments
-            profs - list of P Professors
-            term - string of term ["FALL", "SPRING", "SUMMER"]
-        Return: Array of P integers corresponding to maximum course load
+    """Makes an array of maximum courses a prof can be scheduled for term
+    
+    Indices correspond to professor array.
+    
+    Args:
+        profs: list of P Professors
+        term: string of term ["FALL", "SPRING", "SUMMER"]
+    Returns:
+        Array of P integers corresponding to maximum course load
     """
 
     num_courses = []
@@ -213,19 +215,17 @@ def parse_prof_availability(profs: list[Professor], term: str):
 
 
 def prof_pref_matrix(profs: list[str], prefs: dict, courses=list[str]):
-    """
-    Creates a Professor Preference Matrix
-        Arguments:
-            profs - List of P professors to schedule
-            prefs - Preferences of profs for courses
-                    dictionary format
-                    `prefs[prof_display_name][course_num]`
-            courses - List of C course sections to schedule e.g
-                        "CSC116"
-                        Duplicates correspond to multiple sections
+    """Creates a professor preference matrix
+    
+    Args:
+        profs: List of P professors to schedule
+        prefs: Preferences of profs for courses dictionary format
+            `prefs[prof_display_name][course_num]`
+        courses: List of C course sections to schedule e.g "CSC116"
+            Duplicates correspond to multiple sections
 
-        return: P x C matrix with professor preferences ranging
-                from [0,6]
+    Returns:
+        P x C matrix with professor preferences ranging from [0,6]
     """
 
     n_profs = len(profs)
@@ -248,9 +248,7 @@ def prof_pref_matrix(profs: list[str], prefs: dict, courses=list[str]):
 
 
 def test_print(profs, prefs, courses, avails, pref_matrix):
-    """
-    For debugging purposes >:)
-    """
+    """For debugging purposes >:)"""
 
     logger.debug("PARSING INPUT")
     logger.debug(f"PROFS: {profs}")
@@ -258,5 +256,6 @@ def test_print(profs, prefs, courses, avails, pref_matrix):
     logger.debug(f"AVAILABILITY: {avails}")
     logger.debug(f"COURSES: {courses}")
     logger.debug("MATRIX:")
+
     for i in range(pref_matrix.shape[0]):
         logger.debug(pref_matrix[i])
