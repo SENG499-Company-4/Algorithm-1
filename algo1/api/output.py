@@ -11,23 +11,23 @@ from .times import Times
 logger = logging.getLogger(__name__)
 
 
-def tensorToSemester(tensor, profs, courses, courseMatcher, profMatcher, term):
+def tensor_to_semester(tensor, profs, courses, courses_by_id, profs_by_name, term):
     # tensor = {(course_i, time_j, teacher_k) : pref}
 
     scheduled_courses = []
 
     for course_idx, time_idx, prof_idx in tensor:
         # Corresponding professor object
-        profID = profs[prof_idx]
-        prof = profMatcher[profID]
+        prof_name = profs[prof_idx]
+        prof = profs_by_name[prof_name]
 
         # Get corresponding course object
         courseID = courses[course_idx]
-        course = courseMatcher[courseID]
+        course = courses_by_id[courseID]
 
         time = Times[time_idx]
 
-        course_obj = createCourse(course, prof, time)
+        course_obj = create_course(course, prof, time)
         scheduled_courses.append(course_obj)
         logger.debug(
             f"Prof {course_obj.prof.displayName} is teaching "
@@ -37,9 +37,10 @@ def tensorToSemester(tensor, profs, courses, courseMatcher, profMatcher, term):
     return scheduled_courses
 
 
-def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
+def matrix_to_schedule(matrix, profs, courses, course_by_id,
+                       profMatcher, term):
     """
-    matrixToSchedule: Takes resultant professor-course assignment matrix and
+    matrix_to_schedule: Takes resultant professor-course assignment matrix and
                       outputs schedule
     Arguments
     @param matrix : P x C matrix representing professor-course assignments
@@ -48,7 +49,7 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
                    of matrix rows
     @param courses: list of C courseIDs corresponding to indicies of matrix
                     columns
-    @param courseMatcher: dictionary that maps courseID to corresponding Course
+    @param course_by_id: dictionary that maps courseID to corresponding Course
                           Object
     @param profMatcher: dictionary that maps  prof names to  Professor object
     @param term : string indicating which term was generated
@@ -74,13 +75,13 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
         prof = profMatcher[profID]
 
         # Get corresponding course object
-        courseID = courses[course_idx]
-        course = courseMatcher[courseID]
+        course_id = courses[course_idx]
+        course = course_by_id[course_id]
 
         # TODO: Actual Assignments for courses
         time = rand_block(term)
 
-        course_obj = createCourse(course, prof, time)
+        course_obj = create_course(course, prof, time)
         scheduled_courses.append(course_obj)
         logger.debug(
             f"Prof {course_obj.prof.displayName} is teaching "
@@ -106,7 +107,7 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
     )
 
 
-def createCourse(course: Course, prof: Professor, time: Assignment):
+def create_course(course: Course, prof: Professor, time: Assignment):
     """
     Create new course object for course prof and assigmnent information
 

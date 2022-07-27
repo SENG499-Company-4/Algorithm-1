@@ -8,7 +8,7 @@ import numpy as np
 
 from .times import Times
 from .models import Professor, Course, ScheduleConstraints, Schedule
-from .output import tensorToSemester
+from .output import tensor_to_semester
 from ..randopt.rand_opt import RandOpt
 
 # Max capacity for splitting sections
@@ -41,11 +41,8 @@ def generate_schedule(input: ScheduleConstraints):
         summer_course_input = input.coursesToSchedule.summerCourses
         terms[term] = summer_course_input
 
-    # professor names
-    profs = parse_profs(input.professors)
-    # professor name to Professor object
-    profMatcher = match_prof_name(input.professors)
-    # dictionary of prof preferences
+    prof_names = parse_profs(input.professors)
+    profs_by_name = match_prof_name(input.professors)
     prefs = parse_prof_prefs(input.professors)
 
     semester_list = {"FALL": {}, "SPRING": {}, "SUMMER": {}}
@@ -53,26 +50,23 @@ def generate_schedule(input: ScheduleConstraints):
     for term, semester in terms.items():
         # Array of max courses to schedule
         avails = parse_prof_availability(input.professors, term)
-        # course IDs
-        course = parse_courses(semester)
-        # courseID to Course object
-        courseMatcher = match_course_id(semester)
-        # Professor preference matrix for courses
-        matrix = prof_pref_matrix(profs, prefs, course)
+        course_ids = parse_courses(semester)
+        courses_by_id = match_course_id(semester)
+        pref_matrix = prof_pref_matrix(prof_names, prefs, course_ids)
 
-        test_print(profs, prefs, course, avails, matrix)
+        test_print(prof_names, prefs, course_ids, avails, pref_matrix)
 
         # Run algorithm on teacher preference matrix
         try:
-            output = run_random_search(course, Times, avails, matrix)
+            output = run_random_search(course_ids, Times, avails, pref_matrix)
 
         except Exception as e:
             logger.error(f"Failed generating Schedule: {e}")
             return None
 
         try:
-            semester = tensorToSemester(output, profs, course, courseMatcher,
-                                        profMatcher, term)
+            semester = tensor_to_semester(output, prof_names, course_ids,
+                                          courses_by_id, profs_by_name, term)
             semester_list[term] = semester
 
         except Exception as e:
@@ -111,7 +105,7 @@ def parse_courses(courses: list[Course]):
     """
     List of courses to schedule -- splits into multiple sections
     """
-    courseList = []
+    courses = []
 
     for course in courses:
         # Split Sections based on Capacity if not set
@@ -126,25 +120,25 @@ def parse_courses(courses: list[Course]):
                 # Split capacity evenly amongst sections
                 course.courseCapacity / course.numSections)
 
-        courseID = course.subject + course.courseNumber
+        course_id = course.subject + course.courseNumber
 
         for i in range(course.numSections):
-            courseList.append(courseID)
+            courses.append(course_id)
 
-    return courseList
+    return courses
 
 
 def match_course_id(courses: list[Course]):
     """
-    Returns dictionary for parsing courseID to other attributes
+    Returns dictionary for parsing course_id to other attributes
     """
-    courseDict = {}
+    courses_by_id = {}
 
     for course in courses:
-        courseID = course.subject+course.courseNumber
-        courseDict[courseID] = course
+        course_id = course.subject+course.courseNumber
+        courses_by_id[course_id] = course
 
-    return courseDict
+    return courses_by_id
 
 
 def parse_profs(profs: list[Professor]):
@@ -187,11 +181,11 @@ def match_prof_name(profs: list[Professor]):
     """
     Returns dictionary for matching professor name to professor object
     """
-    profDict = {}
+    profs_by_name = {}
     for prof in profs:
-        profDict[prof.displayName] = prof
+        profs_by_name[prof.displayName] = prof
 
-    return profDict
+    return profs_by_name
 
 
 def parse_prof_availability(profs: list[Professor], term: str):
@@ -204,18 +198,18 @@ def parse_prof_availability(profs: list[Professor], term: str):
         Return: Array of P integers corresponding to maximum course load
     """
 
-    nCourses = []
+    num_courses = []
     for prof in profs:
         if term == "FALL":
-            nCourses.append(prof.fallTermCourses)
+            num_courses.append(prof.fallTermCourses)
 
         elif term == "SPRING":
-            nCourses.append(prof.springTermCourses)
+            num_courses.append(prof.springTermCourses)
 
         elif term == "SUMMER":
-            nCourses.append(prof.summerTermCourses)
+            num_courses.append(prof.summerTermCourses)
 
-    return nCourses
+    return num_courses
 
 
 def prof_pref_matrix(profs: list[str], prefs: dict, courses=list[str]):
@@ -236,7 +230,7 @@ def prof_pref_matrix(profs: list[str], prefs: dict, courses=list[str]):
 
     n_profs = len(profs)
     n_courses = len(courses)
-    prefMatrix = np.zeros((n_profs, n_courses), dtype=np.int32)
+    pref_matrix = np.zeros((n_profs, n_courses), dtype=np.int32)
 
     for prof_index in range(n_profs):
         for course_index in range(n_courses):
@@ -248,12 +242,12 @@ def prof_pref_matrix(profs: list[str], prefs: dict, courses=list[str]):
             if pref is None:
                 pref = 0
 
-            prefMatrix[prof_index][course_index] = int(pref)
+            pref_matrix[prof_index][course_index] = int(pref)
 
-    return prefMatrix
+    return pref_matrix
 
 
-def test_print(profs, prefs, courses, avails, matrix):
+def test_print(profs, prefs, courses, avails, pref_matrix):
     """
     For debugging purposes >:)
     """
@@ -264,5 +258,5 @@ def test_print(profs, prefs, courses, avails, matrix):
     logger.debug(f"AVAILABILITY: {avails}")
     logger.debug(f"COURSES: {courses}")
     logger.debug("MATRIX:")
-    for i in range(matrix.shape[0]):
-        logger.debug(matrix[i])
+    for i in range(pref_matrix.shape[0]):
+        logger.debug(pref_matrix[i])
