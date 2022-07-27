@@ -16,7 +16,7 @@ def main():
     ep_len = 500
     hg = HyperGraphEnv(obs_d, act_d, prefs, P, ep_len)
 
-    for i in range(50):
+    for _ in range(50):
         sample = hg.action_space.sample()
         action = Action(tuple(sample[:-1]), sample[-1])
         obs, rew, done, _ = hg.step(action)

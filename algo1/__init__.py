@@ -1,3 +1,12 @@
+"""SENG 499 Company 4 Algorithm 1
+
+Algorithm 1 generates a schedule given course, professor, preference, and
+capacity data.
+
+A top level logger is defined here as the parent to all other loggers. This
+saves reconfiguring loggers for each module.
+"""
+
 import logging
 import logging.config
 
