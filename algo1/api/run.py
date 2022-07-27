@@ -16,9 +16,13 @@ from .main import app
 from .. import logger
 
 
-if __name__ == "__main__":
+def main():
     load_dotenv()
     logger.setLevel(os.environ["LOG_LEVEL"])
     uvicorn.run(app,
                 host=os.environ["HOST"],
                 port=int(os.environ["PORT"]))
+
+
+if __name__ == "__main__":
+    main()
