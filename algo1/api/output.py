@@ -92,7 +92,7 @@ def matrixToSchedule(matrix, profs, courses, courseMatcher, profMatcher, term):
     summer = []
     spring = []
 
-    if term == 'FALL':
+    if term == "FALL":
         fall = scheduled_courses
     elif term == "SPRING":
         spring = scheduled_courses

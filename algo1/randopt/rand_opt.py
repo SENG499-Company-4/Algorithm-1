@@ -87,10 +87,10 @@ class RandOpt:
         plt.rcParams["figure.figsize"] = [10.00, 5.00]
         plt.rcParams["figure.autolayout"] = True
         fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-        ax.set_xlabel('$Courses$')
-        ax.set_ylabel('$Times$')
-        ax.set_zlabel('$Teachers$')
+        ax = fig.add_subplot(111, projection="3d")
+        ax.set_xlabel("$Courses$")
+        ax.set_ylabel("$Times$")
+        ax.set_zlabel("$Teachers$")
         courses, times, teachers = tensor.nonzero()
         ax.scatter(courses, times, teachers, c=teachers, alpha=1)
         plt.show()
