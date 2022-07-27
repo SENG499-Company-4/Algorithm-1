@@ -1,3 +1,9 @@
+"""API model dummy data generator
+
+Contains some sample data and functions to generate random sets of this data to
+be used as dummy data.
+"""
+
 from datetime import date
 from random import choice, randint, random
 
@@ -22,6 +28,8 @@ TERMS = ("FALL", "SPRING", "SUMMER")
 
 
 def rand_schedule():
+    """Generates a random `Schedule` model"""
+
     return Schedule(
         fallCourses=[rand_course() for _ in range(randint(10, 20))],
         springCourses=[rand_course() for _ in range(randint(10, 20))],
@@ -29,6 +37,8 @@ def rand_schedule():
 
 
 def rand_course():
+    """Generates a random `Course` model"""
+
     subject, number, title = choice(COURSES)
 
     return Course(
@@ -44,6 +54,8 @@ def rand_course():
 
 
 def rand_assignment():
+    """Generates a random `Assignment` model"""
+
     return Assignment(
         startDate=rand_date(),
         endDate=rand_date(),
@@ -60,6 +72,8 @@ def rand_assignment():
 
 
 def rand_block(term="FALL"):
+    """Generates a random `Assignment` model with sane times"""
+
     nBlocks = len(Times)
     assignment = Times[randint(0, nBlocks - 1)]
     if term == "FALL":
@@ -76,16 +90,22 @@ def rand_block(term="FALL"):
 
 
 def rand_date():
+    """Generates a random date string between 2010 and 2022"""
+
     return (
         date(randint(2010, 2022), randint(1, 12), randint(1, 28))
         .strftime("%b %d, %Y"))
 
 
 def rand_time():
+    """Generates a random time in 24h time"""
+
     return f"{randint(0, 23):0>2}{randint(0, 59):0>2}"
 
 
 def rand_prof():
+    """Generates a random `Professor` model"""
+
     return Professor(
         preferences=[rand_pref() for _ in range(randint(1, 5))],
         displayName=choice(PROFS),
@@ -95,6 +115,8 @@ def rand_prof():
 
 
 def rand_pref():
+    """Generates a random `Preference` model"""
+    
     subject, number, _ = choice(COURSES)
 
     return Preference(
