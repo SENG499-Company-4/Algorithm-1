@@ -38,25 +38,25 @@ def tensor_to_semester(tensor, profs, courses, courses_by_id, profs_by_name):
 
 
 def matrix_to_schedule(matrix, profs, courses, course_by_id,
-                       profMatcher, term):
-    """
-    matrix_to_schedule: Takes resultant professor-course assignment matrix and
-                      outputs schedule
-    Arguments
-    @param matrix : P x C matrix representing professor-course assignments
-            cells with 1 correspond to assignments
-    @param profs : list of P professor displayNames corresponding to indicies
-                   of matrix rows
-    @param courses: list of C courseIDs corresponding to indicies of matrix
-                    columns
-    @param course_by_id: dictionary that maps courseID to corresponding Course
-                          Object
-    @param profMatcher: dictionary that maps  prof names to  Professor object
-    @param term : string indicating which term was generated
-                  ["FALL", "SPRING", "SUMMER"]
+                       prof_by_name, term):
+    """Takes resultant professor-course assignment matrix and outputs schedule
 
-    return Schedule Object where list corresponding to term is populated, other
-           terms are empty lists
+    Args:
+        matrix: P x C matrix representing professor-course assignments cells
+            with 1 correspond to assignments
+        profs: list of P professor displayNames corresponding to indicies of
+            matrix rows
+        courses: list of C courseIDs corresponding to indicies of matrix
+            columns
+        course_by_id: dictionary that maps courseID to corresponding `Course`
+            object
+        prof_by_name: dictionary that maps  prof names to  Professor object
+        term: string indicating which term was generated
+            ["FALL", "SPRING", "SUMMER"]
+
+    Return:
+        Schedule Object where list corresponding to term is populated, other
+        terms are empty lists
     """
 
     scheduled_courses = []
@@ -71,8 +71,8 @@ def matrix_to_schedule(matrix, profs, courses, course_by_id,
         prof_idx = np.where(matrix_t[course_idx] == 1)[0][0]
 
         # Corresponding professor object
-        profID = profs[prof_idx]
-        prof = profMatcher[profID]
+        prof_name = profs[prof_idx]
+        prof = prof_by_name[prof_name]
 
         # Get corresponding course object
         course_id = courses[course_idx]
@@ -108,15 +108,15 @@ def matrix_to_schedule(matrix, profs, courses, course_by_id,
 
 
 def create_course(course: Course, prof: Professor, time: Assignment):
-    """
-    Create new course object for course prof and assigmnent information
+    """Create new course object for course prof and assigmnent information
 
-    Arguments
-    @param course : corresponding Course object provided from input
-    @param prof : Professor object for prof to be scheduled
-    @param time : Assignment object for course-prof assignment
+    Args:
+        course: corresponding Course object provided from input
+        prof: Professor object for prof to be scheduled
+        time: Assignment object for course-prof assignment
 
-    @return Course object representing assignment
+    Returns:
+        Course object representing assignment
     """
 
     # Handle incrementing sequence Number
