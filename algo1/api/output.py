@@ -11,7 +11,7 @@ from .times import Times
 logger = logging.getLogger(__name__)
 
 
-def tensor_to_semester(tensor, profs, courses, courses_by_id, profs_by_name, term):
+def tensor_to_semester(tensor, profs, courses, courses_by_id, profs_by_name):
     # tensor = {(course_i, time_j, teacher_k) : pref}
 
     scheduled_courses = []

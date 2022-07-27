@@ -66,7 +66,7 @@ def generate_schedule(input: ScheduleConstraints):
 
         try:
             semester = tensor_to_semester(output, prof_names, course_ids,
-                                          courses_by_id, profs_by_name, term)
+                                          courses_by_id, profs_by_name)
             semester_list[term] = semester
 
         except Exception as e:
@@ -122,7 +122,7 @@ def parse_courses(courses: list[Course]):
 
         course_id = course.subject + course.courseNumber
 
-        for i in range(course.numSections):
+        for _ in range(course.numSections):
             courses.append(course_id)
 
     return courses
