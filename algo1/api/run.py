@@ -1,3 +1,12 @@
+"""Run script for REST API server
+
+Loads environment variables from .env, sets log level and runs a Uvicorn server
+serving the algorithm 1 REST API.
+
+This was mostly set up to allow facilitate configuring Uvicorn via environment
+variables.
+"""
+
 import os
 
 from dotenv import load_dotenv
