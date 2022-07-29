@@ -11,6 +11,10 @@ Algorithm 1 code repository for SENG499 Summer 2022 project.
 - Ty Ellison (@tyellison)
 - Dana Bell (@harkken)
 
+## Documentation
+
+Most of the documentation lives here or in docstrings within the modules. Docstrings follow the [Google style guide](https://google.github.io/styleguide/pyguide.html).
+
 ## Usage
 
 To make requests to the API, you can use a 3rd-party tool (e.g., curl, Postman), or you can use the build-in API docs.

@@ -37,7 +37,7 @@ def main():
     #"""
     
     #prefs = np.random.randint(7, size=(teachers, courses), dtype=np.uint8)
-    avails = [3 for i in range(teachers)] #np.random.randint(1, 4, size=(teachers,), dtype=np.uint8)
+    avails = [3 for _ in range(teachers)] #np.random.randint(1, 4, size=(teachers,), dtype=np.uint8)
     max_iter = 1500
     P = np.arange(7, dtype=np.uint8)
     p_tgt = 3
