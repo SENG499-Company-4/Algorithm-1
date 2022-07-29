@@ -107,7 +107,7 @@ def parse_courses(courses: list[Course]):
     Splits into multiple sections based on specified value.
     """
     
-    courses = []
+    course_ids = []
 
     for course in courses:
         # Split Sections based on Capacity if not set
@@ -125,9 +125,9 @@ def parse_courses(courses: list[Course]):
         course_id = course.subject + course.courseNumber
 
         for _ in range(course.numSections):
-            courses.append(course_id)
+            course_ids.append(course_id)
 
-    return courses
+    return course_ids
 
 
 def match_course_id(courses: list[Course]):
@@ -214,7 +214,7 @@ def parse_prof_availability(profs: list[Professor], term: str):
     return num_courses
 
 
-def prof_pref_matrix(profs: list[str], prefs: dict, courses=list[str]):
+def prof_pref_matrix(profs: list[str], prefs: dict, course_ids=list[str]):
     """Creates a professor preference matrix
     
     Args:
@@ -229,15 +229,15 @@ def prof_pref_matrix(profs: list[str], prefs: dict, courses=list[str]):
     """
 
     n_profs = len(profs)
-    n_courses = len(courses)
+    n_courses = len(course_ids)
     pref_matrix = np.zeros((n_profs, n_courses), dtype=np.int32)
 
     for prof_index in range(n_profs):
         for course_index in range(n_courses):
             # preference for match
             prof = profs[prof_index]
-            course = courses[course_index]
-            pref = prefs[prof].get(course)
+            course_id = course_ids[course_index]
+            pref = prefs[prof].get(course_id)
 
             if pref is None:
                 pref = 0
